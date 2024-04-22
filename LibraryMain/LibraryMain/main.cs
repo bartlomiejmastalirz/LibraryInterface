@@ -15,3 +15,31 @@
 //
 //
 // MORE IDEAS GO HERE, PROGRAMMING STARTS SOON, REMEMBER TO USE "live1" BRANCH FOR ANY PUSH REQUESTS AND DON'T PUSH DIRECTLY TO MAIN
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using CsvHelper;
+using System.Globalization;
+using System.IO;
+
+namespace LibraryMain
+{
+    public class Book
+    {
+        public string Author { get; set; }
+        public string Title { get; set; }
+        public string Year { get; set; }
+        public string BookID { get; set; }
+        public bool Rented { get; set; }
+    }
+
+    class Library
+    {
+        static void Main(string[] args)
+        {
+
+        }
+    }
+}
