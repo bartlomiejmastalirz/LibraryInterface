@@ -1,5 +1,4 @@
 ﻿// To-Do list
-// Make two csv files - users and books, for testing purposes add like two users and books 
 // Make a login screen for the user to provide his credentials (login and password)
 // Make a main menu screen where the user sees his Name and Surname and can choose: Search|Check rented books status|Rent a book
 // 
@@ -24,10 +23,12 @@ using CsvHelper;
 using System.Globalization;
 using System.IO;
 using System.Net.Http.Headers;
+using System.Numerics;
+using System.Security.Cryptography.X509Certificates;
 
 namespace LibraryMain
 {
-    //This is the Book class containing all the info for how it is put into the csv
+    //This is the Book class containing all book data
     public class Book
     {
         public int BookID { get; set; }
@@ -36,7 +37,7 @@ namespace LibraryMain
         public int Year { get; set; }  
         public bool Rented { get; set; }
     }
-
+    //This is the User class containing all user data
     public class User
     {
         public string Login { get; set; } = "";
@@ -48,32 +49,129 @@ namespace LibraryMain
 
     class Library
     {
+        string userName = "";
+        string userSurname = "";
+        bool isAdmin = false;
+        //Just ASCII art of the menu top, will be using this a lot
+        static void MenuScreen()
+        {
+            Console.WriteLine(@"
+              _      _ _                            _____       _             __               
+             | |    (_) |                          |_   _|     | |           / _|              
+             | |     _| |__  _ __ __ _ _ __ _   _    | |  _ __ | |_ ___ _ __| |_ __ _  ___ ___ 
+             | |    | | '_ \| '__/ _` | '__| | | |   | | | '_ \| __/ _ \ '__|  _/ _` |/ __/ _ \
+             | |____| | |_) | | | (_| | |  | |_| |  _| |_| | | | ||  __/ |  | || (_| | (_|  __/
+             |______|_|_.__/|_|  \__,_|_|   \__, | |_____|_| |_|\__\___|_|  |_| \__,_|\___\___|
+                                             __/ |                                             
+                                            |___/                                              
+            ");
+        }
+
+        //Method to initiate the login screen
+        static void LoginScreen()
+        {
+            Console.Clear();
+            MenuScreen();
+            string userName = "";
+            string userSurname = "";
+            bool isAdmin = false;
+            Console.WriteLine("Please input your login credentials: ");
+
+            //Feels like a really slow way of searching for a user login but will do for now
+            try
+            {
+                if (File.Exists("users.csv"))
+                {
+
+                    Console.WriteLine("Login: ");
+                    string login = Console.ReadLine();
+
+                    using (var reader = new StreamReader("users.csv"))
+                    using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+                    {
+                        IEnumerable<User> records = csv.GetRecords<User>();
+
+                        foreach (User user in records)
+                        {
+                            if (user.Login == login)
+                            {
+                                Console.WriteLine("Password: ");
+                                string password = Console.ReadLine();
+
+                                if (user.Password == password)
+                                {
+
+                                    LoginComplete(user.UserName, user.UserSurname, user.IsAdmin);
+                                    break;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Invalid Password");
+                                    LoginScreen();
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid Login");
+                                LoginScreen();
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        //Initiates after succesful user login
+        static void LoginComplete(string userName, string userSurname, bool isAdmin)
+        {
+            Console.Clear();
+            MenuScreen();
+            Console.WriteLine("Good day to you " + userName + " " + userSurname + "!\nWhat do you want to do? This user is admin " + isAdmin);
+        }
+
         static void Main(string[] args)
         {
-            var bookObjects = new List <Book> ()
-            {
-                new Book
-                {
-                    BookID = 1, Author = "testName", Title = "goodBook", Year = 2024, Rented = false    
-                }
-            };
 
-            var userObjects = new List<User>()
-            {
-                new User
-                {
-                    Login = "login", Password = "password", UserName = "AdminTest", UserSurname = "Number1", IsAdmin = true
-                }
-            };
-            //
-            //Console.WriteLine(Directory.GetCurrentDirectory().GetType());
-            //
-            using var writer = new StreamWriter(@"users.csv");
-            using var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
-            {
-                csv.WriteRecords(userObjects);
-            }
 
+
+            //!!!!!!!!!!!
+            //DO NOT UNCOMMENT UNLESS THERE IS A "DUPLICATE CHECKER" METHOD and Admin functionality is added
+            //!!!!!!!!!!!
+            //var bookObjects = new List <Book> ()
+            //{
+            //    new Book
+            //    {
+            //        BookID = 1, Author = "testName", Title = "goodBook", Year = 2024, Rented = false    
+            //    }
+            //};
+
+            //var userObjects = new List<User>()
+            //{
+            //    new User
+            //    {
+            //        Login = "login", Password = "password", UserName = "AdminTest", UserSurname = "Number1", IsAdmin = true
+            //    }
+            //};
+
+            //This will be used when Admin functionality is added
+            //using var userWriter = new StreamWriter(@"users.csv", true);
+            //using var userCsv = new CsvWriter(userWriter, CultureInfo.InvariantCulture);
+            //{
+            //    userCsv.WriteRecords(userObjects);
+            //}
+
+            //using var bookWriter = new StreamWriter(@"books.csv", true);
+            //using var bookCsv = new CsvWriter(bookWriter, CultureInfo.InvariantCulture);
+            //{
+            //    bookCsv.WriteRecords(userObjects);
+            //}
+            LoginScreen();
+            Console.ReadKey();
         }
     }
 }
