@@ -23,22 +23,56 @@ using System.Threading.Tasks;
 using CsvHelper;
 using System.Globalization;
 using System.IO;
+using System.Net.Http.Headers;
 
 namespace LibraryMain
 {
+    //This is the Book class containing all the info for how it is put into the csv
     public class Book
     {
-        public string Author { get; set; }
-        public string Title { get; set; }
-        public string Year { get; set; }
-        public string BookID { get; set; }
+        public int BookID { get; set; }
+        public string Author { get; set; } = "";
+        public string Title { get; set; } = "";
+        public int Year { get; set; }  
         public bool Rented { get; set; }
+    }
+
+    public class User
+    {
+        public string Login { get; set; } = "";
+        public string Password { get; set; } = "";
+        public string UserName { get; set; } = "";
+        public string UserSurname { get; set; } = "";
+        public bool IsAdmin { get; set; } = false;
     }
 
     class Library
     {
         static void Main(string[] args)
         {
+            var bookObjects = new List <Book> ()
+            {
+                new Book
+                {
+                    BookID = 1, Author = "testName", Title = "goodBook", Year = 2024, Rented = false    
+                }
+            };
+
+            var userObjects = new List<User>()
+            {
+                new User
+                {
+                    Login = "login", Password = "password", UserName = "AdminTest", UserSurname = "Number1", IsAdmin = true
+                }
+            };
+            //
+            //Console.WriteLine(Directory.GetCurrentDirectory().GetType());
+            //
+            using var writer = new StreamWriter(@"users.csv");
+            using var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
+            {
+                csv.WriteRecords(userObjects);
+            }
 
         }
     }
