@@ -104,13 +104,14 @@ namespace LibraryMain
                                     Thread.Sleep(2000);
                                     LoginScreen();
                                 }
+                               
                             }
-
+                        
                         }
-                        //GET THIS OUT OF HERE, SO IT CHECKS WHEN THE USER ACTUALLY ENTERED WRONG LOGIN
-                        Console.WriteLine("Invalid Login");
-                        Thread.Sleep(2000);
-                        LoginScreen();
+                        ////GET THIS OUT OF HERE, SO IT CHECKS WHEN THE USER ACTUALLY ENTERED WRONG LOGIN
+                        //Console.WriteLine("Invalid Login");
+                        //Thread.Sleep(2000);
+                        //LoginScreen();
                     }
                 }
             }
@@ -132,6 +133,11 @@ namespace LibraryMain
             {
                 Console.WriteLine("\nYou are logged in as an Admin user. What do you want to do? \n" +
                     "(AddBook)Add a book | (DelBook)Delete a book | (AddUser)Add a user | (DelUser)Delete a user"); 
+            }
+            string choice = Console.ReadLine().ToLower();
+            switch (choice)
+            {
+                case string choice == "search":
             }
         }
 
