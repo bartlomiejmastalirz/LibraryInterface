@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "LibraryMain": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Users\\Student\\source\\repos\\bartlomiejmastalirz\\LibraryInterface\\LibraryMain\\LibraryMain"
+    },
+    "WSL": {
+      "commandName": "WSL2",
+      "distributionName": ""
+    }
+  }
+}

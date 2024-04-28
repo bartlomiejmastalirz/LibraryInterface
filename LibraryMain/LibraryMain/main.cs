@@ -1,5 +1,5 @@
 ﻿// To-Do list
-// Make a login screen for the user to provide his credentials (login and password)
+// Make a login screen for the user to provide his credentials (login and password) - DONE (scuffed for now)
 // Make a main menu screen where the user sees his Name and Surname and can choose: Search|Check rented books status|Rent a book
 // 
 // Make an ADMIN account that can add users and books to csv files
@@ -49,9 +49,8 @@ namespace LibraryMain
 
     class Library
     {
-        string userName = "";
-        string userSurname = "";
-        bool isAdmin = false;
+ 
+
         //Just ASCII art of the menu top, will be using this a lot
         static void MenuScreen()
         {
@@ -72,9 +71,6 @@ namespace LibraryMain
         {
             Console.Clear();
             MenuScreen();
-            string userName = "";
-            string userSurname = "";
-            bool isAdmin = false;
             Console.WriteLine("Please input your login credentials: ");
 
             //Feels like a really slow way of searching for a user login but will do for now
@@ -82,14 +78,13 @@ namespace LibraryMain
             {
                 if (File.Exists("users.csv"))
                 {
-
-                    Console.WriteLine("Login: ");
-                    string login = Console.ReadLine();
-
                     using (var reader = new StreamReader("users.csv"))
                     using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                     {
-                        IEnumerable<User> records = csv.GetRecords<User>();
+                        var records = csv.GetRecords<User>();
+
+                        Console.WriteLine("Login: ");
+                        string login = Console.ReadLine();
 
                         foreach (User user in records)
                         {
@@ -100,27 +95,26 @@ namespace LibraryMain
 
                                 if (user.Password == password)
                                 {
-
                                     LoginComplete(user.UserName, user.UserSurname, user.IsAdmin);
                                     break;
                                 }
                                 else
                                 {
                                     Console.WriteLine("Invalid Password");
+                                    Thread.Sleep(2000);
                                     LoginScreen();
                                 }
                             }
-                            else
-                            {
-                                Console.WriteLine("Invalid Login");
-                                LoginScreen();
-                            }
-                        }
 
+                        }
+                        //GET THIS OUT OF HERE, SO IT CHECKS WHEN THE USER ACTUALLY ENTERED WRONG LOGIN
+                        Console.WriteLine("Invalid Login");
+                        Thread.Sleep(2000);
+                        LoginScreen();
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -131,7 +125,14 @@ namespace LibraryMain
         {
             Console.Clear();
             MenuScreen();
-            Console.WriteLine("Good day to you " + userName + " " + userSurname + "!\nWhat do you want to do? This user is admin " + isAdmin);
+            Console.WriteLine("Good day to you " + userName + " " + userSurname + "!\nWhat do you want to do?\n" +
+                "(Search)Search for a book | (Rent)Rent a book with provided ID | (Check)Check your rented books");
+
+            if (isAdmin==true)
+            {
+                Console.WriteLine("\nYou are logged in as an Admin user. What do you want to do? \n" +
+                    "(AddBook)Add a book | (DelBook)Delete a book | (AddUser)Add a user | (DelUser)Delete a user"); 
+            }
         }
 
         static void Main(string[] args)
