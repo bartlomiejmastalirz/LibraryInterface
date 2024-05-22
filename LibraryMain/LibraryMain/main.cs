@@ -137,7 +137,8 @@ namespace LibraryMain
             string choice = Console.ReadLine().ToLower();
             switch (choice)
             {
-                case string choice == "search":
+                case "search":
+                    break;
             }
         }
 
