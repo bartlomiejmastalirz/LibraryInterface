@@ -7,16 +7,11 @@ namespace WFInterface
             InitializeComponent();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        //This piece of code checks for the username and password from database
+        private void LoginButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void loginButton_Click(object sender, EventArgs e)
-        {
-            //This piece of code checks for the username and password from database
             //TODO: Implement the csv OR database usage to this thing
-            if (txtUsername.Text == "Test" && txtPassword.Text == "1234")
+            if (TxtUsername.Text == "Test" && TxtPassword.Text == "1234")
             {
                 new ActualInterface().Show();
                 this.Hide();
@@ -24,51 +19,57 @@ namespace WFInterface
             else
             {
                 MessageBox.Show("The username or password are incorrect. Try again");
-                txtUsername.Clear();
-                txtPassword.Clear();
-                txtUsername.Focus();
+                TxtUsername.Clear();
+                TxtPassword.Clear();
+                TxtUsername.Focus();
             }
         }
 
-        private void exitLabel_Click(object sender, EventArgs e)
+        //This just exits the application upon clicking "Exit"
+        private void ExitLabel_Click(object sender, EventArgs e)
         {
-            //This just exits the application upon clicking "Exit"
             Application.Exit();
         }
 
-        private void txtUsername_Enter(object sender, EventArgs e)
+        //Enters and Leaves are for textbox interactions
+        private void TxtUsername_Enter(object sender, EventArgs e)
         {
-            if (txtUsername.Text == "Login")
+            // !Warning - If anyone uses a login of "Login" it is going to erase it. Too bad!
+            if (TxtUsername.Text == "Login")
             {
-                txtUsername.Text = "";
-                txtUsername.ForeColor = Color.Black;
+                TxtUsername.Text = "";
+                TxtUsername.ForeColor = Color.Black;
             }
         }
 
-        private void txtUsername_Leave(object sender, EventArgs e)
+        private void TxtUsername_Leave(object sender, EventArgs e)
         {
-            if (txtUsername.Text == "Login")
+            if (TxtUsername.Text == "")
             {
-                txtUsername.Text = "";
-                txtUsername.ForeColor = Color.Black;
+                TxtUsername.Text = "Login";
+                TxtUsername.ForeColor = Color.Silver;
             }
         }
 
-        private void txtPassword_Enter(object sender, EventArgs e)
+        private void TxtPassword_Enter(object sender, EventArgs e)
         {
-            if (txtPassword.Text == "Password")
+            // !Warning - If anyone uses a password of "Password" it is going to erase it. Too bad!
+            if (TxtPassword.Text == "Password")
             {
-                txtPassword.Text = "";
-                txtPassword.ForeColor = Color.Black;
+                TxtPassword.Text = "";
+                TxtPassword.PasswordChar = '*';
+                TxtPassword.ForeColor = Color.Black;
             }
         }
 
-        private void txtPassword_Leave(object sender, EventArgs e)
+        private void TxtPassword_Leave(object sender, EventArgs e)
         {
-            if (txtPassword.Text == "")
+            if (TxtPassword.Text == "")
             {
-                txtPassword.Text = "Password";
-                txtPassword.ForeColor = Color.Silver;
+                TxtPassword.Text = "Password";
+                // v This sets the password character back to 'null' from '*' 
+                TxtPassword.PasswordChar = '\0';
+                TxtPassword.ForeColor = Color.Silver;
             }
         }
     }
