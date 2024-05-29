@@ -57,12 +57,12 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Century Gothic", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label1.Font = new Font("Calibri", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(25, 128);
+            label1.Location = new Point(41, 128);
             label1.MinimumSize = new Size(110, 40);
             label1.Name = "label1";
-            label1.Size = new Size(254, 40);
+            label1.Size = new Size(228, 40);
             label1.TabIndex = 1;
             label1.Text = "NAMELESS LOGIN";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -88,7 +88,7 @@
             LoginButton.BackColor = Color.DimGray;
             LoginButton.FlatAppearance.BorderSize = 0;
             LoginButton.FlatStyle = FlatStyle.Flat;
-            LoginButton.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            LoginButton.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
             LoginButton.ForeColor = Color.White;
             LoginButton.Location = new Point(22, 362);
             LoginButton.Name = "LoginButton";
@@ -112,7 +112,7 @@
             // TxtUsername
             // 
             TxtUsername.BorderStyle = BorderStyle.None;
-            TxtUsername.Font = new Font("Century Gothic", 17.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            TxtUsername.Font = new Font("Calibri", 17.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
             TxtUsername.ForeColor = Color.DarkGray;
             TxtUsername.Location = new Point(66, 182);
             TxtUsername.Multiline = true;
@@ -126,7 +126,7 @@
             // TxtPassword
             // 
             TxtPassword.BorderStyle = BorderStyle.None;
-            TxtPassword.Font = new Font("Century Gothic", 17.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            TxtPassword.Font = new Font("Calibri", 17.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
             TxtPassword.ForeColor = Color.DarkGray;
             TxtPassword.Location = new Point(66, 266);
             TxtPassword.Multiline = true;
