@@ -22,6 +22,13 @@ namespace WFInterface
                 TxtUsername.Clear();
                 TxtPassword.Clear();
                 TxtUsername.Focus();
+                if (TxtPassword.Text == "")
+                {
+                    TxtPassword.Text = "Password";
+                    // v This sets the password character back to 'null' from '*' 
+                    TxtPassword.PasswordChar = '\0';
+                    TxtPassword.ForeColor = Color.Silver;
+                }
             }
         }
 
