@@ -10,6 +10,12 @@ namespace WFInterface
         //This piece of code checks for the username and password from database
         private void LoginButton_Click(object sender, EventArgs e)
         {
+            StreamReader reader = null;
+            if (File.Exists("users.csv"))
+            {
+                MessageBox.Show("File exists");
+            }
+
             //TODO: Implement the csv OR database usage to this thing
             if (TxtUsername.Text == "Test" && TxtPassword.Text == "1234")
             {
@@ -22,6 +28,7 @@ namespace WFInterface
                 TxtUsername.Clear();
                 TxtPassword.Clear();
                 TxtUsername.Focus();
+                TxtUsername.ForeColor = Color.Black;
                 if (TxtPassword.Text == "")
                 {
                     TxtPassword.Text = "Password";
