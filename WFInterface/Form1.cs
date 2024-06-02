@@ -1,7 +1,14 @@
+using CsvHelper;
+using System.Globalization;
+
 namespace WFInterface
 {
+
     public partial class Form1 : Form
     {
+        //This is here in case users.csv is lost somewhere else, just let it be
+        //As of now, the users.csv should be in bin\debug folder, if it isn't, it won't work
+        private string usersPath = "users.csv";
         public Form1()
         {
             InitializeComponent();
@@ -10,20 +17,15 @@ namespace WFInterface
         //This piece of code checks for the username and password from database
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            StreamReader reader = null;
-            if (File.Exists("users.csv"))
-            {
-                MessageBox.Show("File exists");
-            }
-
-            //TODO: Implement the csv OR database usage to this thing
-            if (TxtUsername.Text == "Test" && TxtPassword.Text == "1234")
+            if (OpenUsers(TxtUsername.Text, TxtPassword.Text, usersPath) == true)
+             //if (TxtUsername.Text == "Test" && TxtPassword.Text == "1234")
             {
                 new ActualInterface().Show();
                 this.Hide();
             }
             else
             {
+                //Incorrect password or username textbox
                 MessageBox.Show("The username or password are incorrect. Try again");
                 TxtUsername.Clear();
                 TxtPassword.Clear();
@@ -85,6 +87,48 @@ namespace WFInterface
                 TxtPassword.PasswordChar = '\0';
                 TxtPassword.ForeColor = Color.Silver;
             }
+        }
+        
+        //Method to open a file with users and try to log in
+        //uses CsvHelper to search through a csv to find user data
+        public static bool OpenUsers(string username, string password, string filePath)
+        {
+            try
+            {
+                if (File.Exists("users.csv"))
+                {
+                    using (var reader = new StreamReader("users.csv"))
+                    using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+                    {
+                        var records = csv.GetRecords<User>();
+
+                        foreach (var user in records) 
+                        { 
+                            if (user.Login == username)
+                            {
+                                if (user.Password == password)
+                                {
+                                    return true;
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+            } 
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return false;
+        }
+        public class User
+        {
+            public string Login { get; set; } = "";
+            public string Password { get; set; } = "";
+            public string UserName { get; set; } = "";
+            public string UserSurname { get; set; } = "";
+            public bool IsAdmin { get; set; } = false;
         }
     }
 }
