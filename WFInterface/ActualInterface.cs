@@ -17,9 +17,33 @@ namespace WFInterface
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnlogout_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Hide();
+            new Form1().Show();
+            MessageBox.Show("Succesfully logged out!");
+        }
+
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void TxtSearch_Enter(object sender, EventArgs e)
+        {
+            if (TxtSearch.Text == "Search resources")
+            {
+                TxtSearch.Text = "";
+                TxtSearch.ForeColor = Color.Black;
+            }
+        }
+        private void TxtSearch_Leave(object sender, EventArgs e)
+        {
+            if (TxtSearch.Text == "")
+            {
+                TxtSearch.Text = "Search resources";
+                TxtSearch.ForeColor = Color.Silver;
+            }
         }
     }
+    
 }
