@@ -18,7 +18,7 @@ namespace WFInterface
         private void LoginButton_Click(object sender, EventArgs e)
         {
             if (OpenUsers(TxtUsername.Text, TxtPassword.Text, usersPath) == true)
-             //if (TxtUsername.Text == "Test" && TxtPassword.Text == "1234")
+            //if (TxtUsername.Text == "Test" && TxtPassword.Text == "1234")
             {
                 new ActualInterface().Show();
                 this.Hide();
@@ -88,7 +88,7 @@ namespace WFInterface
                 TxtPassword.ForeColor = Color.Silver;
             }
         }
-        
+
         //Method to open a file with users and try to log in
         //uses CsvHelper to search through a csv to find user data
         public static bool OpenUsers(string username, string password, string filePath)
@@ -102,8 +102,8 @@ namespace WFInterface
                     {
                         var records = csv.GetRecords<User>();
 
-                        foreach (var user in records) 
-                        { 
+                        foreach (var user in records)
+                        {
                             if (user.Login == username)
                             {
                                 if (user.Password == password)
@@ -112,10 +112,10 @@ namespace WFInterface
                                 }
                             }
                         }
-                        
+
                     }
                 }
-            } 
+            }
             catch (Exception ex)
             {
                 throw;
@@ -129,6 +129,11 @@ namespace WFInterface
             public string UserName { get; set; } = "";
             public string UserSurname { get; set; } = "";
             public bool IsAdmin { get; set; } = false;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
