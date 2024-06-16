@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             pictureBox1 = new PictureBox();
             label1 = new Label();
             panel1 = new Panel();
@@ -58,7 +57,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Calibri", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            label1.ForeColor = Color.Black;
+            label1.ForeColor = Color.OliveDrab;
             label1.Location = new Point(41, 128);
             label1.MinimumSize = new Size(110, 40);
             label1.Name = "label1";
@@ -69,15 +68,16 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.DimGray;
+            panel1.BackColor = Color.OliveDrab;
             panel1.Location = new Point(17, 216);
             panel1.Name = "panel1";
             panel1.Size = new Size(279, 10);
             panel1.TabIndex = 3;
+            panel1.Paint += panel1_Paint;
             // 
             // panel2
             // 
-            panel2.BackColor = Color.DimGray;
+            panel2.BackColor = Color.OliveDrab;
             panel2.Location = new Point(17, 302);
             panel2.Name = "panel2";
             panel2.Size = new Size(279, 11);
@@ -85,11 +85,11 @@
             // 
             // LoginButton
             // 
-            LoginButton.BackColor = Color.DimGray;
+            LoginButton.BackColor = Color.OliveDrab;
             LoginButton.FlatAppearance.BorderSize = 0;
             LoginButton.FlatStyle = FlatStyle.Flat;
             LoginButton.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            LoginButton.ForeColor = Color.White;
+            LoginButton.ForeColor = Color.SeaShell;
             LoginButton.Location = new Point(22, 362);
             LoginButton.Name = "LoginButton";
             LoginButton.Size = new Size(265, 32);
@@ -102,6 +102,7 @@
             // 
             ExitLabel.AutoSize = true;
             ExitLabel.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            ExitLabel.ForeColor = Color.ForestGreen;
             ExitLabel.Location = new Point(141, 416);
             ExitLabel.Name = "ExitLabel";
             ExitLabel.Size = new Size(28, 16);
@@ -111,6 +112,7 @@
             // 
             // TxtUsername
             // 
+            TxtUsername.BackColor = Color.SeaShell;
             TxtUsername.BorderStyle = BorderStyle.None;
             TxtUsername.Font = new Font("Calibri", 17.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
             TxtUsername.ForeColor = Color.DarkGray;
@@ -125,6 +127,7 @@
             // 
             // TxtPassword
             // 
+            TxtPassword.BackColor = Color.SeaShell;
             TxtPassword.BorderStyle = BorderStyle.None;
             TxtPassword.Font = new Font("Calibri", 17.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
             TxtPassword.ForeColor = Color.DarkGray;
@@ -139,7 +142,7 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Image = Properties.Resources.icons8_padlock_24;
             pictureBox2.Location = new Point(20, 267);
             pictureBox2.Margin = new Padding(3, 2, 3, 2);
             pictureBox2.Name = "pictureBox2";
@@ -164,7 +167,7 @@
             AcceptButton = LoginButton;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.SeaShell;
             ClientSize = new Size(308, 486);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
