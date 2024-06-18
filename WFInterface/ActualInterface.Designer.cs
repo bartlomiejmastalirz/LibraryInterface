@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ActualInterface));
-            dataGridView1 = new DataGridView();
+            bookListView = new DataGridView();
             TxtSearch = new TextBox();
             BtnSearch = new Button();
             panel1 = new Panel();
@@ -44,23 +44,23 @@
             panel6 = new Panel();
             panel7 = new Panel();
             label1 = new Label();
-            dataGridView2 = new DataGridView();
+            newsListView = new DataGridView();
             newItems = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bookListView).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)newsListView).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // bookListView
             // 
-            dataGridView1.BackgroundColor = Color.FromArgb(229, 222, 207);
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(308, 225);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(613, 461);
-            dataGridView1.TabIndex = 0;
+            bookListView.BackgroundColor = Color.FromArgb(229, 222, 207);
+            bookListView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            bookListView.Location = new Point(308, 225);
+            bookListView.Name = "bookListView";
+            bookListView.RowHeadersWidth = 51;
+            bookListView.Size = new Size(613, 461);
+            bookListView.TabIndex = 0;
             // 
             // TxtSearch
             // 
@@ -224,15 +224,15 @@
             label1.TabIndex = 9;
             label1.Text = "Nie usuwać, przybornik";
             // 
-            // dataGridView2
+            // newsListView
             // 
-            dataGridView2.BackgroundColor = Color.FromArgb(229, 222, 207);
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(31, 175);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowHeadersWidth = 51;
-            dataGridView2.Size = new Size(247, 513);
-            dataGridView2.TabIndex = 10;
+            newsListView.BackgroundColor = Color.FromArgb(229, 222, 207);
+            newsListView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            newsListView.Location = new Point(31, 175);
+            newsListView.Name = "newsListView";
+            newsListView.RowHeadersWidth = 51;
+            newsListView.Size = new Size(247, 513);
+            newsListView.TabIndex = 10;
             // 
             // newItems
             // 
@@ -253,7 +253,7 @@
             ClientSize = new Size(984, 748);
             ControlBox = false;
             Controls.Add(newItems);
-            Controls.Add(dataGridView2);
+            Controls.Add(newsListView);
             Controls.Add(label1);
             Controls.Add(panel7);
             Controls.Add(panel6);
@@ -264,23 +264,23 @@
             Controls.Add(panel1);
             Controls.Add(BtnSearch);
             Controls.Add(TxtSearch);
-            Controls.Add(dataGridView1);
+            Controls.Add(bookListView);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             HelpButton = true;
             Margin = new Padding(3, 4, 3, 4);
             Name = "ActualInterface";
             Text = "Nameless Library";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bookListView).EndInit();
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)newsListView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView bookListView;
         private TextBox TxtSearch;
         private Button BtnSearch;
         private Panel panel1;
@@ -295,7 +295,7 @@
         private Panel panel7;
         private Label label1;
         private Button btnAdminPanel;
-        private DataGridView dataGridView2;
+        private DataGridView newsListView;
         private Label newItems;
     }
 }
