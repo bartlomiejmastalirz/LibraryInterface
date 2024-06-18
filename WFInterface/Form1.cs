@@ -15,7 +15,7 @@ namespace WFInterface
         }
 
         //This piece of code checks for the username and password from database
-        private void LoginButton_Click(object sender, EventArgs e)
+        internal void LoginButton_Click(object sender, EventArgs e)
         {
             if (OpenUsers(TxtUsername.Text, TxtPassword.Text, usersPath) == true)
             //if (TxtUsername.Text == "Test" && TxtPassword.Text == "1234")
@@ -48,7 +48,7 @@ namespace WFInterface
         }
 
         //Enters and Leaves are for textbox interactions
-        private void TxtUsername_Enter(object sender, EventArgs e)
+        public void TxtUsername_Enter(object sender, EventArgs e)
         {
             // !Warning - If anyone uses a login of "Login" it is going to erase it. Too bad!
             if (TxtUsername.Text == "Login")
@@ -67,7 +67,7 @@ namespace WFInterface
             }
         }
 
-        private void TxtPassword_Enter(object sender, EventArgs e)
+        public void TxtPassword_Enter(object sender, EventArgs e)
         {
             // !Warning - If anyone uses a password of "Password" it is going to erase it. Too bad!
             if (TxtPassword.Text == "Password")
@@ -129,11 +129,6 @@ namespace WFInterface
             public string UserName { get; set; } = "";
             public string UserSurname { get; set; } = "";
             public bool IsAdmin { get; set; } = false;
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

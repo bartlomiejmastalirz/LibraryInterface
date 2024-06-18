@@ -1,3 +1,4 @@
 Login,Password,UserName,UserSurname,IsAdmin
-login,password,AdminTest,Number1,True
+Admin,Test,AdminTest,Number1,True
 login1,password1,UserTest,Number1,False
+login,password,User1,Number1,False

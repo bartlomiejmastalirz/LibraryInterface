@@ -73,7 +73,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(279, 10);
             panel1.TabIndex = 3;
-            panel1.Paint += panel1_Paint;
             // 
             // panel2
             // 
@@ -199,7 +198,7 @@
         private Button LoginButton;
         private Label ExitLabel;
 
-        private TextBox TxtUsername;
+        public TextBox TxtUsername;
         private TextBox TxtPassword;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
