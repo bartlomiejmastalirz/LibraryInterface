@@ -12,11 +12,18 @@ namespace WFInterface
 {
     public partial class ActualInterface : Form
     {
-        public ActualInterface()
+        //DO NOT DELETE
+        private User _currentUser;
+
+        //DO NOT DELETE
+        public ActualInterface(User user)
         {
             InitializeComponent();
+            _currentUser = user;
+            DisplayUserInfo();
         }
 
+        //DO NOT DELETE
         private void btnlogout_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -30,7 +37,7 @@ namespace WFInterface
         }
         private void TxtSearch_Enter(object sender, EventArgs e)
         {
-            if (TxtSearch.Text == "Search resources")
+            if (TxtSearch.Text == "Search for books...")
             {
                 TxtSearch.Text = "";
                 TxtSearch.ForeColor = Color.Black;
@@ -40,10 +47,20 @@ namespace WFInterface
         {
             if (TxtSearch.Text == "")
             {
-                TxtSearch.Text = "Search resources";
+                TxtSearch.Text = "Search for books...";
                 TxtSearch.ForeColor = Color.Silver;
             }
         }
+
+        private void btnMyProfile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //DO NOT DELETE
+        private void DisplayUserInfo()
+        {
+            lblUsername.Text = _currentUser.UserName;
+        }
     }
-    
 }

@@ -33,9 +33,10 @@
             TxtSearch = new TextBox();
             BtnSearch = new Button();
             panel1 = new Panel();
+            lblUsername = new Label();
             btnAdminPanel = new Button();
             btnLogout = new Button();
-            btnMyProfil = new Button();
+            btnMyProfile = new Button();
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
             panel3 = new Panel();
@@ -46,6 +47,7 @@
             label1 = new Label();
             dataGridView2 = new DataGridView();
             newItems = new Label();
+            welcomeLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -54,26 +56,28 @@
             // 
             // dataGridView1
             // 
-            dataGridView1.BackgroundColor = Color.FromArgb(229, 222, 207);
+            dataGridView1.BackgroundColor = Color.FromArgb(238, 231, 215);
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(308, 225);
+            dataGridView1.Location = new Point(270, 169);
+            dataGridView1.Margin = new Padding(3, 2, 3, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(613, 461);
+            dataGridView1.Size = new Size(536, 346);
             dataGridView1.TabIndex = 0;
             // 
             // TxtSearch
             // 
-            TxtSearch.BackColor = Color.SeaShell;
+            TxtSearch.BackColor = Color.FromArgb(246, 238, 227);
             TxtSearch.BorderStyle = BorderStyle.None;
             TxtSearch.Font = new Font("Calibri", 18F, FontStyle.Regular, GraphicsUnit.Point, 238);
             TxtSearch.ForeColor = Color.DarkGray;
-            TxtSearch.Location = new Point(308, 130);
+            TxtSearch.Location = new Point(270, 98);
+            TxtSearch.Margin = new Padding(3, 2, 3, 2);
             TxtSearch.Multiline = true;
             TxtSearch.Name = "TxtSearch";
-            TxtSearch.Size = new Size(550, 44);
+            TxtSearch.Size = new Size(481, 33);
             TxtSearch.TabIndex = 1;
-            TxtSearch.Text = "Search resources";
+            TxtSearch.Text = "Search for books...";
             TxtSearch.TextChanged += TxtSearch_TextChanged;
             TxtSearch.Enter += TxtSearch_Enter;
             TxtSearch.Leave += TxtSearch_Leave;
@@ -82,175 +86,197 @@
             // 
             BtnSearch.Anchor = AnchorStyles.None;
             BtnSearch.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            BtnSearch.BackColor = Color.Silver;
+            BtnSearch.BackColor = Color.FromArgb(229, 203, 186);
             BtnSearch.BackgroundImageLayout = ImageLayout.Zoom;
             BtnSearch.FlatAppearance.BorderSize = 0;
             BtnSearch.FlatStyle = FlatStyle.Flat;
             BtnSearch.ForeColor = Color.Black;
             BtnSearch.Image = (Image)resources.GetObject("BtnSearch.Image");
-            BtnSearch.Location = new Point(864, 130);
+            BtnSearch.Location = new Point(756, 98);
+            BtnSearch.Margin = new Padding(3, 2, 3, 2);
             BtnSearch.Name = "BtnSearch";
-            BtnSearch.Size = new Size(57, 67);
+            BtnSearch.Size = new Size(50, 50);
             BtnSearch.TabIndex = 2;
             BtnSearch.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(217, 189, 165);
+            panel1.BackColor = Color.FromArgb(229, 203, 186);
+            panel1.Controls.Add(welcomeLabel);
+            panel1.Controls.Add(lblUsername);
             panel1.Controls.Add(btnAdminPanel);
             panel1.Controls.Add(btnLogout);
-            panel1.Controls.Add(btnMyProfil);
+            panel1.Controls.Add(btnMyProfile);
             panel1.Controls.Add(pictureBox1);
-            panel1.Location = new Point(-1, -3);
+            panel1.Location = new Point(-1, -2);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(984, 101);
+            panel1.Size = new Size(861, 76);
             panel1.TabIndex = 3;
+            // 
+            // lblUsername
+            // 
+            lblUsername.AutoSize = true;
+            lblUsername.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            lblUsername.Location = new Point(244, 30);
+            lblUsername.Name = "lblUsername";
+            lblUsername.Size = new Size(39, 19);
+            lblUsername.TabIndex = 8;
+            lblUsername.Text = "User";
             // 
             // btnAdminPanel
             // 
-            btnAdminPanel.BackColor = Color.DimGray;
+            btnAdminPanel.BackColor = Color.FromArgb(217, 189, 165);
             btnAdminPanel.FlatAppearance.BorderSize = 0;
             btnAdminPanel.FlatStyle = FlatStyle.Flat;
             btnAdminPanel.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            btnAdminPanel.ForeColor = Color.White;
-            btnAdminPanel.Location = new Point(593, 27);
+            btnAdminPanel.ForeColor = Color.FromArgb(246, 238, 227);
+            btnAdminPanel.Location = new Point(517, 20);
+            btnAdminPanel.Margin = new Padding(3, 2, 3, 2);
             btnAdminPanel.Name = "btnAdminPanel";
-            btnAdminPanel.Size = new Size(130, 48);
+            btnAdminPanel.Size = new Size(114, 36);
             btnAdminPanel.TabIndex = 7;
             btnAdminPanel.Text = "Admin";
             btnAdminPanel.UseVisualStyleBackColor = false;
             // 
             // btnLogout
             // 
-            btnLogout.BackColor = Color.DimGray;
+            btnLogout.BackColor = Color.FromArgb(217, 189, 165);
             btnLogout.FlatAppearance.BorderSize = 0;
             btnLogout.FlatStyle = FlatStyle.Flat;
             btnLogout.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            btnLogout.ForeColor = Color.White;
-            btnLogout.Location = new Point(865, 27);
+            btnLogout.ForeColor = Color.FromArgb(246, 238, 227);
+            btnLogout.Location = new Point(757, 20);
+            btnLogout.Margin = new Padding(3, 2, 3, 2);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(108, 48);
+            btnLogout.Size = new Size(94, 36);
             btnLogout.TabIndex = 6;
             btnLogout.Text = "Log out";
             btnLogout.UseVisualStyleBackColor = false;
             btnLogout.Click += btnlogout_Click;
             // 
-            // btnMyProfil
+            // btnMyProfile
             // 
-            btnMyProfil.BackColor = Color.DimGray;
-            btnMyProfil.FlatAppearance.BorderSize = 0;
-            btnMyProfil.FlatStyle = FlatStyle.Flat;
-            btnMyProfil.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            btnMyProfil.ForeColor = Color.White;
-            btnMyProfil.Location = new Point(729, 27);
-            btnMyProfil.Name = "btnMyProfil";
-            btnMyProfil.Size = new Size(130, 48);
-            btnMyProfil.TabIndex = 5;
-            btnMyProfil.Text = "My profil";
-            btnMyProfil.UseVisualStyleBackColor = false;
+            btnMyProfile.BackColor = Color.FromArgb(217, 189, 165);
+            btnMyProfile.FlatAppearance.BorderSize = 0;
+            btnMyProfile.FlatStyle = FlatStyle.Flat;
+            btnMyProfile.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            btnMyProfile.ForeColor = Color.FromArgb(246, 238, 227);
+            btnMyProfile.Location = new Point(637, 20);
+            btnMyProfile.Margin = new Padding(3, 2, 3, 2);
+            btnMyProfile.Name = "btnMyProfile";
+            btnMyProfile.Size = new Size(114, 36);
+            btnMyProfile.TabIndex = 5;
+            btnMyProfile.Text = "My profile";
+            btnMyProfile.UseVisualStyleBackColor = false;
+            btnMyProfile.Click += btnMyProfile_Click;
             // 
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = Properties.Resources.noun_library_71245;
-            pictureBox1.Location = new Point(13, 4);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
+            pictureBox1.Location = new Point(13, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(99, 95);
+            pictureBox1.Size = new Size(87, 71);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
             // panel2
             // 
-            panel2.BackColor = Color.DimGray;
-            panel2.Location = new Point(308, 184);
-            panel2.Margin = new Padding(3, 4, 3, 4);
+            panel2.BackColor = Color.FromArgb(229, 203, 186);
+            panel2.Location = new Point(270, 138);
             panel2.Name = "panel2";
-            panel2.Size = new Size(550, 13);
+            panel2.Size = new Size(481, 10);
             panel2.TabIndex = 4;
             // 
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(246, 238, 227);
-            panel3.Location = new Point(5, 711);
-            panel3.Margin = new Padding(3, 4, 3, 4);
+            panel3.Location = new Point(4, 533);
             panel3.Name = "panel3";
-            panel3.Size = new Size(32, 33);
+            panel3.Size = new Size(28, 25);
             panel3.TabIndex = 5;
             // 
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(238, 231, 215);
-            panel4.Location = new Point(44, 711);
-            panel4.Margin = new Padding(3, 4, 3, 4);
+            panel4.Location = new Point(38, 533);
             panel4.Name = "panel4";
-            panel4.Size = new Size(32, 33);
+            panel4.Size = new Size(28, 25);
             panel4.TabIndex = 6;
             // 
             // panel5
             // 
             panel5.BackColor = Color.FromArgb(229, 222, 207);
-            panel5.Location = new Point(82, 711);
-            panel5.Margin = new Padding(3, 4, 3, 4);
+            panel5.Location = new Point(72, 533);
             panel5.Name = "panel5";
-            panel5.Size = new Size(32, 33);
+            panel5.Size = new Size(28, 25);
             panel5.TabIndex = 7;
             // 
             // panel6
             // 
             panel6.BackColor = Color.FromArgb(229, 203, 186);
-            panel6.Location = new Point(121, 711);
-            panel6.Margin = new Padding(3, 4, 3, 4);
+            panel6.Location = new Point(106, 533);
             panel6.Name = "panel6";
-            panel6.Size = new Size(32, 33);
+            panel6.Size = new Size(28, 25);
             panel6.TabIndex = 6;
             // 
             // panel7
             // 
             panel7.BackColor = Color.FromArgb(217, 189, 165);
-            panel7.Location = new Point(160, 711);
-            panel7.Margin = new Padding(3, 4, 3, 4);
+            panel7.Location = new Point(140, 533);
             panel7.Name = "panel7";
-            panel7.Size = new Size(32, 33);
+            panel7.Size = new Size(28, 25);
             panel7.TabIndex = 8;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(25, 687);
+            label1.Location = new Point(22, 515);
             label1.Name = "label1";
-            label1.Size = new Size(161, 20);
+            label1.Size = new Size(130, 15);
             label1.TabIndex = 9;
             label1.Text = "Nie usuwać, przybornik";
             // 
             // dataGridView2
             // 
-            dataGridView2.BackgroundColor = Color.FromArgb(229, 222, 207);
+            dataGridView2.BackgroundColor = Color.FromArgb(238, 231, 215);
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(31, 175);
+            dataGridView2.Location = new Point(27, 131);
+            dataGridView2.Margin = new Padding(3, 2, 3, 2);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowHeadersWidth = 51;
-            dataGridView2.Size = new Size(247, 513);
+            dataGridView2.Size = new Size(216, 385);
             dataGridView2.TabIndex = 10;
             // 
             // newItems
             // 
             newItems.AutoSize = true;
             newItems.Font = new Font("Calibri", 18F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            newItems.Location = new Point(31, 130);
+            newItems.Location = new Point(27, 98);
             newItems.Name = "newItems";
-            newItems.Size = new Size(148, 37);
+            newItems.Size = new Size(117, 29);
             newItems.TabIndex = 11;
             newItems.Text = "New Items";
             // 
+            // welcomeLabel
+            // 
+            welcomeLabel.AutoSize = true;
+            welcomeLabel.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            welcomeLabel.Location = new Point(107, 30);
+            welcomeLabel.Name = "welcomeLabel";
+            welcomeLabel.Size = new Size(140, 19);
+            welcomeLabel.TabIndex = 9;
+            welcomeLabel.Text = "You are logged in as";
+            // 
             // ActualInterface
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            BackColor = Color.SeaShell;
-            ClientSize = new Size(984, 748);
+            BackColor = Color.FromArgb(246, 238, 227);
+            ClientSize = new Size(861, 561);
             ControlBox = false;
             Controls.Add(newItems);
             Controls.Add(dataGridView2);
@@ -267,11 +293,11 @@
             Controls.Add(dataGridView1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             HelpButton = true;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "ActualInterface";
             Text = "Nameless Library";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
@@ -286,7 +312,7 @@
         private Panel panel1;
         private PictureBox pictureBox1;
         private Button btnLogout;
-        private Button btnMyProfil;
+        private Button btnMyProfile;
         private Panel panel2;
         private Panel panel3;
         private Panel panel4;
@@ -297,5 +323,7 @@
         private Button btnAdminPanel;
         private DataGridView dataGridView2;
         private Label newItems;
+        private Label lblUsername;
+        private Label welcomeLabel;
     }
 }

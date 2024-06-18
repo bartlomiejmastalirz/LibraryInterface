@@ -17,28 +17,7 @@ namespace WFInterface
         //This piece of code checks for the username and password from database
         internal void LoginButton_Click(object sender, EventArgs e)
         {
-            if (OpenUsers(TxtUsername.Text, TxtPassword.Text, usersPath) == true)
-            //if (TxtUsername.Text == "Test" && TxtPassword.Text == "1234")
-            {
-                new ActualInterface().Show();
-                this.Hide();
-            }
-            else
-            {
-                //Incorrect password or username textbox
-                MessageBox.Show("The username or password are incorrect. Try again");
-                TxtUsername.Clear();
-                TxtPassword.Clear();
-                TxtUsername.Focus();
-                TxtUsername.ForeColor = Color.Black;
-                if (TxtPassword.Text == "")
-                {
-                    TxtPassword.Text = "Password";
-                    // v This sets the password character back to 'null' from '*' 
-                    TxtPassword.PasswordChar = '\0';
-                    TxtPassword.ForeColor = Color.Silver;
-                }
-            }
+            PerformLogin();
         }
 
         //This just exits the application upon clicking "Exit"
@@ -89,46 +68,64 @@ namespace WFInterface
             }
         }
 
-        //Method to open a file with users and try to log in
-        //uses CsvHelper to search through a csv to find user data
-        public static bool OpenUsers(string username, string password, string filePath)
+
+        private void PerformLogin()
         {
-            try
+            string username = TxtUsername.Text;
+            string password = TxtPassword.Text;
+
+            User user = GetUserFromCsv(username);
+
+            if (user != null && ValidatePassword(user))
             {
-                if (File.Exists("users.csv"))
+              // LoadRentedBooks(user); // Load rented books for the user
+                ActualInterface actualInterface = new ActualInterface(user);
+                actualInterface.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("The username or password are incorrect. Try again.");
+            }
+        }
+
+        private User GetUserFromCsv(string username)
+        {
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "users.csv");
+
+            using (var reader = new StreamReader(filePath))
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            {
+                csv.Read();
+                csv.ReadHeader();
+                while (csv.Read())
                 {
-                    using (var reader = new StreamReader("users.csv"))
-                    using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+                    var user = new User
                     {
-                        var records = csv.GetRecords<User>();
+                        Login = csv.GetField<string>("Login"),
+                        Password = csv.GetField<string>("Password"),
+                        UserName = csv.GetField<string>("UserName"),
+                        UserSurname = csv.GetField<string>("UserSurname"),
+                        IsAdmin = csv.GetField<bool>("IsAdmin"),
+                        BooksRented = csv.GetField<string>("BooksRented")
+                                        .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                                        .Select(int.Parse)
+                                        .ToList()
+                    };
 
-                        foreach (var user in records)
-                        {
-                            if (user.Login == username)
-                            {
-                                if (user.Password == password)
-                                {
-                                    return true;
-                                }
-                            }
-                        }
-
+                    if (user.Login == username)
+                    {
+                        return user;
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            return false;
+            return null;
         }
-        public class User
+
+        private bool ValidatePassword(User user)
         {
-            public string Login { get; set; } = "";
-            public string Password { get; set; } = "";
-            public string UserName { get; set; } = "";
-            public string UserSurname { get; set; } = "";
-            public bool IsAdmin { get; set; } = false;
+            string password = TxtPassword.Text;
+            return user.Password == password;
         }
     }
 }
