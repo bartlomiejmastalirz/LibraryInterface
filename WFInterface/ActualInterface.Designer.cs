@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ActualInterface));
-            dataGridView1 = new DataGridView();
+            bookListView = new DataGridView();
             TxtSearch = new TextBox();
             BtnSearch = new Button();
             panel1 = new Panel();
@@ -45,16 +45,16 @@
             panel6 = new Panel();
             panel7 = new Panel();
             label1 = new Label();
-            dataGridView2 = new DataGridView();
+            newsListView = new DataGridView();
             newItems = new Label();
             welcomeLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)newsListView).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // bookListView
             // 
             dataGridView1.BackgroundColor = Color.FromArgb(238, 231, 215);
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -239,7 +239,7 @@
             label1.TabIndex = 9;
             label1.Text = "Nie usuwać, przybornik";
             // 
-            // dataGridView2
+            // newsListView
             // 
             dataGridView2.BackgroundColor = Color.FromArgb(238, 231, 215);
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -279,7 +279,7 @@
             ClientSize = new Size(861, 561);
             ControlBox = false;
             Controls.Add(newItems);
-            Controls.Add(dataGridView2);
+            Controls.Add(newsListView);
             Controls.Add(label1);
             Controls.Add(panel7);
             Controls.Add(panel6);
@@ -290,23 +290,23 @@
             Controls.Add(panel1);
             Controls.Add(BtnSearch);
             Controls.Add(TxtSearch);
-            Controls.Add(dataGridView1);
+            Controls.Add(bookListView);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             HelpButton = true;
             Name = "ActualInterface";
             Text = "Nameless Library";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bookListView).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)newsListView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView bookListView;
         private TextBox TxtSearch;
         private Button BtnSearch;
         private Panel panel1;
@@ -321,7 +321,7 @@
         private Panel panel7;
         private Label label1;
         private Button btnAdminPanel;
-        private DataGridView dataGridView2;
+        private DataGridView newsListView;
         private Label newItems;
         private Label lblUsername;
         private Label welcomeLabel;
