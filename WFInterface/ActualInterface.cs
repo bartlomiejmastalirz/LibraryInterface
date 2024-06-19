@@ -66,5 +66,16 @@ namespace WFInterface
             lblUsername.Text = _currentUser.UserName;
         }
 
+        private void ActualInterface_Load(object sender, EventArgs e)
+        {
+            if (_currentUser.UserName != "AdminTest")
+            {
+                btnAdminPanel.Visible = false;
+            }
+            else
+            {
+                btnAdminPanel.Visible = true;
+            }
+        }
     }
 }
