@@ -33,6 +33,7 @@
             TxtSearch = new TextBox();
             BtnSearch = new Button();
             panel1 = new Panel();
+            welcomeLabel = new Label();
             lblUsername = new Label();
             btnAdminPanel = new Button();
             btnLogout = new Button();
@@ -47,8 +48,7 @@
             label1 = new Label();
             newsListView = new DataGridView();
             newItems = new Label();
-            welcomeLabel = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bookListView).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)newsListView).BeginInit();
@@ -56,14 +56,14 @@
             // 
             // bookListView
             // 
-            dataGridView1.BackgroundColor = Color.FromArgb(238, 231, 215);
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(270, 169);
-            dataGridView1.Margin = new Padding(3, 2, 3, 2);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(536, 346);
-            dataGridView1.TabIndex = 0;
+            bookListView.BackgroundColor = Color.FromArgb(238, 231, 215);
+            bookListView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            bookListView.Location = new Point(270, 169);
+            bookListView.Margin = new Padding(3, 2, 3, 2);
+            bookListView.Name = "bookListView";
+            bookListView.RowHeadersWidth = 51;
+            bookListView.Size = new Size(536, 346);
+            bookListView.TabIndex = 0;
             // 
             // TxtSearch
             // 
@@ -113,6 +113,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(861, 76);
             panel1.TabIndex = 3;
+            // 
+            // welcomeLabel
+            // 
+            welcomeLabel.AutoSize = true;
+            welcomeLabel.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            welcomeLabel.Location = new Point(107, 30);
+            welcomeLabel.Name = "welcomeLabel";
+            welcomeLabel.Size = new Size(140, 19);
+            welcomeLabel.TabIndex = 9;
+            welcomeLabel.Text = "You are logged in as";
             // 
             // lblUsername
             // 
@@ -241,14 +251,14 @@
             // 
             // newsListView
             // 
-            dataGridView2.BackgroundColor = Color.FromArgb(238, 231, 215);
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(27, 131);
-            dataGridView2.Margin = new Padding(3, 2, 3, 2);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowHeadersWidth = 51;
-            dataGridView2.Size = new Size(216, 385);
-            dataGridView2.TabIndex = 10;
+            newsListView.BackgroundColor = Color.FromArgb(238, 231, 215);
+            newsListView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            newsListView.Location = new Point(27, 131);
+            newsListView.Margin = new Padding(3, 2, 3, 2);
+            newsListView.Name = "newsListView";
+            newsListView.RowHeadersWidth = 51;
+            newsListView.Size = new Size(216, 385);
+            newsListView.TabIndex = 10;
             // 
             // newItems
             // 
@@ -260,16 +270,6 @@
             newItems.TabIndex = 11;
             newItems.Text = "New Items";
             // 
-            // welcomeLabel
-            // 
-            welcomeLabel.AutoSize = true;
-            welcomeLabel.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            welcomeLabel.Location = new Point(107, 30);
-            welcomeLabel.Name = "welcomeLabel";
-            welcomeLabel.Size = new Size(140, 19);
-            welcomeLabel.TabIndex = 9;
-            welcomeLabel.Text = "You are logged in as";
-            // 
             // ActualInterface
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -277,7 +277,6 @@
             AutoSize = true;
             BackColor = Color.FromArgb(246, 238, 227);
             ClientSize = new Size(861, 561);
-            ControlBox = false;
             Controls.Add(newItems);
             Controls.Add(newsListView);
             Controls.Add(label1);
