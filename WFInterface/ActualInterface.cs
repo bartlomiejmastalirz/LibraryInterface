@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -54,7 +55,9 @@ namespace WFInterface
 
         private void btnMyProfile_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            MyProfileForm profileForm = new MyProfileForm(_currentUser);
+            profileForm.Show();
         }
 
         //DO NOT DELETE
@@ -62,5 +65,6 @@ namespace WFInterface
         {
             lblUsername.Text = _currentUser.UserName;
         }
+
     }
 }

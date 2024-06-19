@@ -6,8 +6,6 @@ namespace WFInterface
 
     public partial class Form1 : Form
     {
-        //This is here in case users.csv is lost somewhere else, just let it be
-        //As of now, the users.csv should be in bin\debug folder, if it isn't, it won't work
         private string usersPath = "users.csv";
         public Form1()
         {
