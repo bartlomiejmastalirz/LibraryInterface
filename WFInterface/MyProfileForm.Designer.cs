@@ -30,19 +30,23 @@
         {
             lblUserName = new Label();
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
+            btnGoBack = new Button();
             label1 = new Label();
             panel7 = new Panel();
             panel6 = new Panel();
             panel5 = new Panel();
             panel4 = new Panel();
             panel3 = new Panel();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // lblUserName
             // 
             lblUserName.AutoSize = true;
             lblUserName.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            lblUserName.Location = new Point(301, 45);
+            lblUserName.Location = new Point(250, 30);
             lblUserName.Name = "lblUserName";
             lblUserName.Size = new Size(44, 26);
             lblUserName.TabIndex = 0;
@@ -50,11 +54,40 @@
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.ActiveCaptionText;
-            panel1.Location = new Point(12, 95);
+            panel1.BackColor = Color.FromArgb(229, 203, 186);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(lblUserName);
+            panel1.Location = new Point(-1, -2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(776, 100);
+            panel1.Size = new Size(489, 76);
             panel1.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = Properties.Resources.noun_library_71245;
+            pictureBox1.Location = new Point(13, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(65, 80);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 16;
+            pictureBox1.TabStop = false;
+            // 
+            // btnGoBack
+            // 
+            btnGoBack.BackColor = Color.FromArgb(217, 189, 165);
+            btnGoBack.FlatAppearance.BorderSize = 0;
+            btnGoBack.FlatStyle = FlatStyle.Flat;
+            btnGoBack.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            btnGoBack.ForeColor = Color.FromArgb(246, 238, 227);
+            btnGoBack.Location = new Point(755, 18);
+            btnGoBack.Margin = new Padding(3, 2, 3, 2);
+            btnGoBack.Name = "btnGoBack";
+            btnGoBack.Size = new Size(94, 36);
+            btnGoBack.TabIndex = 17;
+            btnGoBack.Text = "Go back";
+            btnGoBack.UseVisualStyleBackColor = false;
+            btnGoBack.Click += btnGoBack_Click;
             // 
             // label1
             // 
@@ -109,7 +142,10 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(246, 238, 227);
             ClientSize = new Size(861, 561);
+            ControlBox = false;
+            Controls.Add(btnGoBack);
             Controls.Add(label1);
             Controls.Add(panel7);
             Controls.Add(panel6);
@@ -117,10 +153,12 @@
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(panel1);
-            Controls.Add(lblUserName);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "MyProfileForm";
-            Text = "MyProfileForm";
+            Text = "My User Profile";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -135,5 +173,7 @@
         private Panel panel5;
         private Panel panel4;
         private Panel panel3;
+        private PictureBox pictureBox1;
+        private Button btnGoBack;
     }
 }

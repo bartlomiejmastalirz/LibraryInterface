@@ -6,7 +6,6 @@ namespace WFInterface
 
     public partial class Form1 : Form
     {
-        private string usersPath = "users.csv";
         public Form1()
         {
             InitializeComponent();
@@ -66,7 +65,7 @@ namespace WFInterface
             }
         }
 
-
+        //A login function
         private void PerformLogin()
         {
             string username = TxtUsername.Text;
@@ -74,9 +73,8 @@ namespace WFInterface
 
             User user = GetUserFromCsv(username);
 
-            if (user != null && ValidatePassword(user))
+            if (user != null && ValidatePassword(user)) //checks if user exists and input password is correct
             {
-              // LoadRentedBooks(user); // Load rented books for the user
                 ActualInterface actualInterface = new ActualInterface(user);
                 actualInterface.Show();
                 this.Hide();
@@ -87,6 +85,7 @@ namespace WFInterface
             }
         }
 
+        //With the help of CSVHelper we get all the user data already here and push it to next forms
         private User GetUserFromCsv(string username)
         {
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "users.csv");
@@ -98,7 +97,7 @@ namespace WFInterface
                 csv.ReadHeader();
                 while (csv.Read())
                 {
-                    var user = new User
+                    var user = new User         //Makes a new user object with the data parsed from CSV
                     {
                         Login = csv.GetField<string>("Login"),
                         Password = csv.GetField<string>("Password"),
@@ -117,10 +116,10 @@ namespace WFInterface
                     }
                 }
             }
-            return null;
+            return null;                    //A bit dangerous but will do lol
         }
 
-        private bool ValidatePassword(User user)
+        private bool ValidatePassword(User user)    //certified hackerman password validation, very safe indeed
         {
             string password = TxtPassword.Text;
             return user.Password == password;
