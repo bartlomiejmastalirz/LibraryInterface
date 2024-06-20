@@ -111,7 +111,7 @@
             // 
             // TxtUsername
             // 
-            TxtUsername.BackColor = Color.FromArgb(246, 238, 227);
+            TxtUsername.BackColor = Color.FromArgb(238, 231, 215);
             TxtUsername.BorderStyle = BorderStyle.None;
             TxtUsername.Font = new Font("Calibri", 17.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
             TxtUsername.ForeColor = Color.DarkGray;
@@ -126,7 +126,7 @@
             // 
             // TxtPassword
             // 
-            TxtPassword.BackColor = Color.FromArgb(246, 238, 227);
+            TxtPassword.BackColor = Color.FromArgb(238, 231, 215);
             TxtPassword.BorderStyle = BorderStyle.None;
             TxtPassword.Font = new Font("Calibri", 17.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
             TxtPassword.ForeColor = Color.DarkGray;
@@ -166,7 +166,7 @@
             AcceptButton = LoginButton;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(246, 238, 227);
+            BackColor = Color.FromArgb(238, 231, 215);
             ClientSize = new Size(308, 486);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);

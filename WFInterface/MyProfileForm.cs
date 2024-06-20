@@ -14,15 +14,24 @@ namespace WFInterface
     public partial class MyProfileForm : Form
     {
         private User _currentUser;
-        public MyProfileForm(User user)
+        private ActualInterface _actualInterface; //stores AI data
+
+        public MyProfileForm(User user, ActualInterface actualInterface)
         {
             InitializeComponent();
             _currentUser = user;
+            _actualInterface = actualInterface;
             DisplayUserInfo();
         }
         private void DisplayUserInfo()
         {
             lblUserName.Text = _currentUser.UserName;
+        }
+
+        private void btnGoBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            _actualInterface.Show();
         }
     }
 }
