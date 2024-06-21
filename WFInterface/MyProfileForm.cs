@@ -22,6 +22,8 @@ namespace WFInterface
             _currentUser = user;
             _actualInterface = actualInterface;
             DisplayUserInfo();
+
+            this.Size = new Size(877, 600);
         }
         private void DisplayUserInfo()
         {
@@ -40,6 +42,16 @@ namespace WFInterface
             // Set the location of the child form to be the same as the parent form
             childForm.StartPosition = FormStartPosition.Manual;
             childForm.Location = parentForm.Location;
+        }
+
+
+
+        //applies layout
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            this.StartPosition = FormStartPosition.CenterParent;
+            this.PerformLayout();
         }
 
     }

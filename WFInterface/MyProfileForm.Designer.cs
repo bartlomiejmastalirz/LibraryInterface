@@ -30,6 +30,7 @@
         {
             lblUserName = new Label();
             panel1 = new Panel();
+            labelNameless = new Label();
             pictureBox1 = new PictureBox();
             btnGoBack = new Button();
             label1 = new Label();
@@ -38,6 +39,7 @@
             panel5 = new Panel();
             panel4 = new Panel();
             panel3 = new Panel();
+            label2 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -46,7 +48,7 @@
             // 
             lblUserName.AutoSize = true;
             lblUserName.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            lblUserName.Location = new Point(250, 30);
+            lblUserName.Location = new Point(42, 138);
             lblUserName.Name = "lblUserName";
             lblUserName.Size = new Size(44, 26);
             lblUserName.TabIndex = 0;
@@ -55,12 +57,22 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(229, 203, 186);
+            panel1.Controls.Add(labelNameless);
             panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(lblUserName);
             panel1.Location = new Point(-1, -2);
             panel1.Name = "panel1";
             panel1.Size = new Size(489, 76);
             panel1.TabIndex = 1;
+            // 
+            // labelNameless
+            // 
+            labelNameless.AutoSize = true;
+            labelNameless.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            labelNameless.Location = new Point(84, 20);
+            labelNameless.Name = "labelNameless";
+            labelNameless.Size = new Size(259, 39);
+            labelNameless.TabIndex = 18;
+            labelNameless.Text = "NAMELESS Library";
             // 
             // pictureBox1
             // 
@@ -138,6 +150,16 @@
             panel3.Size = new Size(28, 25);
             panel3.TabIndex = 10;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            label2.Location = new Point(26, 112);
+            label2.Name = "label2";
+            label2.Size = new Size(196, 26);
+            label2.TabIndex = 18;
+            label2.Text = "Your user information";
+            // 
             // MyProfileForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -145,7 +167,9 @@
             BackColor = Color.FromArgb(246, 238, 227);
             ClientSize = new Size(861, 561);
             ControlBox = false;
+            Controls.Add(label2);
             Controls.Add(btnGoBack);
+            Controls.Add(lblUserName);
             Controls.Add(label1);
             Controls.Add(panel7);
             Controls.Add(panel6);
@@ -175,5 +199,7 @@
         private Panel panel3;
         private PictureBox pictureBox1;
         private Button btnGoBack;
+        private Label labelNameless;
+        private Label label2;
     }
 }

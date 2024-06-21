@@ -45,12 +45,14 @@ namespace WFInterface
 
             this.Close(); // Close MainForm
             this.Dispose();
+            MessageBox.Show("Successfully logged out!");
         }
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
 
         }
+        
         private void TxtSearch_Enter(object sender, EventArgs e)
         {
             if (TxtSearch.Text == "Search for books...")
@@ -59,6 +61,7 @@ namespace WFInterface
                 TxtSearch.ForeColor = Color.Black;
             }
         }
+
         private void TxtSearch_Leave(object sender, EventArgs e)
         {
             if (TxtSearch.Text == "")
@@ -89,7 +92,7 @@ namespace WFInterface
         //DO NOT DELETE
         private void DisplayUserInfo()
         {
-            lblUsername.Text = _currentUser.UserName;
+            lblUsername.Text = _currentUser.UserName + ' ' + _currentUser.UserSurname;
         }
 
         //Shows the Admin button to admin user
