@@ -30,6 +30,7 @@ namespace WFInterface
             DisplayUserInfo();
             LoadBooks();
             TxtSearch.TextChanged += TxtSearch_TextChanged;
+            StyleDataGridView();
         }
         private void LoadBooks()
         {
@@ -39,9 +40,11 @@ namespace WFInterface
                 _allBooks = csv.GetRecords<Book>().ToList();
             }
 
+            _allBooks = _allBooks.OrderByDescending(book => int.Parse(book.Year)).ToList(); // Sort books by year
             _filteredBooks = new List<Book>(_allBooks);
             UpdateBookList();
         }
+
         //DO NOT DELETE
         private void btnLogout_Click(object sender, EventArgs e)
         {
@@ -80,15 +83,62 @@ namespace WFInterface
             }
             UpdateBookList();
         }
+
         private void UpdateBookList()
         {
-            bookListView.DataSource = null;
-            bookListView.DataSource = _filteredBooks;
+            // Create a data table excluding the BookID column
+            var dataTable = new DataTable();
+            dataTable.Columns.Add("Title");
+            dataTable.Columns.Add("Author");
+            dataTable.Columns.Add("Year");
 
-            if (bookListView.Columns["BookID"] != null)
+            foreach (var book in _filteredBooks)
             {
-                bookListView.Columns.Remove("BookID");
+                dataTable.Rows.Add(book.Title, book.Author, book.Year);
             }
+
+            bookListView.DataSource = dataTable;
+
+            // Set the width of the title and author columns
+            if (bookListView.Columns["Title"] != null)
+            {
+                bookListView.Columns["Title"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                bookListView.Columns["Title"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            }
+
+            if (bookListView.Columns["Author"] != null)
+            {
+                bookListView.Columns["Author"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                bookListView.Columns["Author"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            }
+
+            bookListView.AutoResizeColumns();
+            bookListView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void StyleDataGridView()
+        {
+            Font font = new Font("Segoe UI", 12);
+
+            bookListView.Font = font;
+            bookListView.DefaultCellStyle.Font = font;
+            bookListView.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+
+            bookListView.BackgroundColor = Color.FromArgb(238, 231, 215);
+            bookListView.DefaultCellStyle.BackColor = Color.FromArgb(246, 238, 227);
+            bookListView.DefaultCellStyle.ForeColor = Color.Black;
+            bookListView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(229, 203, 186);
+
+            bookListView.EnableHeadersVisualStyles = false;
+            bookListView.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(217, 189, 165);
+            bookListView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            bookListView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            bookListView.DefaultCellStyle.SelectionBackColor = Color.FromArgb(229, 222, 207);
+            bookListView.DefaultCellStyle.SelectionForeColor = Color.Black;
+
+            bookListView.RowHeadersVisible = false;
+            bookListView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void TxtSearch_Enter(object sender, EventArgs e)
