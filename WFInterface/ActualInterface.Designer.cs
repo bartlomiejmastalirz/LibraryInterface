@@ -33,6 +33,7 @@
             TxtSearch = new TextBox();
             BtnSearch = new Button();
             panel1 = new Panel();
+            labelNameless = new Label();
             pictureBox1 = new PictureBox();
             welcomeLabel = new Label();
             lblUsername = new Label();
@@ -48,7 +49,6 @@
             label1 = new Label();
             newsListView = new DataGridView();
             newItems = new Label();
-            labelNameless = new Label();
             ((System.ComponentModel.ISupportInitialize)bookListView).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -68,7 +68,7 @@
             // 
             // TxtSearch
             // 
-            TxtSearch.BackColor = Color.FromArgb(238, 231, 215);
+            TxtSearch.BackColor = Color.FromArgb(246, 238, 227);
             TxtSearch.BorderStyle = BorderStyle.None;
             TxtSearch.Font = new Font("Calibri", 18F, FontStyle.Regular, GraphicsUnit.Point, 238);
             TxtSearch.ForeColor = Color.DarkGray;
@@ -110,6 +110,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(489, 76);
             panel1.TabIndex = 3;
+            // 
+            // labelNameless
+            // 
+            labelNameless.AutoSize = true;
+            labelNameless.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            labelNameless.Location = new Point(84, 20);
+            labelNameless.Name = "labelNameless";
+            labelNameless.Size = new Size(259, 39);
+            labelNameless.TabIndex = 2;
+            labelNameless.Text = "NAMELESS Library";
             // 
             // pictureBox1
             // 
@@ -268,22 +278,12 @@
             newItems.TabIndex = 11;
             newItems.Text = "New Items";
             // 
-            // labelNameless
-            // 
-            labelNameless.AutoSize = true;
-            labelNameless.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            labelNameless.Location = new Point(84, 20);
-            labelNameless.Name = "labelNameless";
-            labelNameless.Size = new Size(259, 39);
-            labelNameless.TabIndex = 2;
-            labelNameless.Text = "NAMELESS Library";
-            // 
             // ActualInterface
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            BackColor = Color.FromArgb(238, 231, 215);
+            BackColor = Color.FromArgb(246, 238, 227);
             ClientSize = new Size(861, 561);
             Controls.Add(lblUsername);
             Controls.Add(welcomeLabel);

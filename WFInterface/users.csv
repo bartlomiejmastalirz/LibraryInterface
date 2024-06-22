@@ -1,4 +1,4 @@
 Login,Password,UserName,UserSurname,IsAdmin,BooksRented
 Admin,Test,AdminTest,Number1,True,
 login1,password1,UserTest,Number1,False,
-login,password,User1,Number1,False,
+login,password,User1,Number1,False,1,3,4,12

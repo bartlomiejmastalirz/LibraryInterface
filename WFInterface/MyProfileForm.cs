@@ -27,7 +27,12 @@ namespace WFInterface
         }
         private void DisplayUserInfo()
         {
-            lblUserName.Text = _currentUser.UserName;
+            lblName.Text = _currentUser.UserName;
+            lblSurname.Text = _currentUser.UserSurname;
+            lblLogin.Text = _currentUser.Login;
+
+            lblBooks.Text = string.Join(", ", _currentUser.BooksRented);
+
         }
 
         private void btnGoBack_Click(object sender, EventArgs e)
@@ -54,6 +59,7 @@ namespace WFInterface
             this.PerformLayout();
         }
 
+      
     }
 }
 
