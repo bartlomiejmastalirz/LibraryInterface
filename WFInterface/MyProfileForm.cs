@@ -31,7 +31,7 @@ namespace WFInterface
             lblSurname.Text = _currentUser.UserSurname;
             lblLogin.Text = _currentUser.Login;
 
-            lblBooks.Text = string.Join(", ", _currentUser.BooksRented);
+            lblBooks.Text = "Books Rented: " + string.Join(", ", _currentUser.BooksRented);
 
         }
 

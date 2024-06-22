@@ -7,6 +7,7 @@
     public bool IsAdmin { get; set; } = false;
     public List<int> BooksRented { get; set; } = new List<int>(); // List of rented book IDs
 
+
     public void ParseBooksRented(string booksRented)
     {
         if (!string.IsNullOrEmpty(booksRented))
