@@ -1,2 +1,51 @@
 BookID,Author,Title,Year,Rented
-1,testName,goodBook,2024,False
+1,"J.K. Rowling","Harry Potter and the Philosopher's Stone",1997,0
+2,"J.R.R. Tolkien","The Lord of the Rings: The Fellowship of the Ring",1954,1
+3,"George Orwell","Nineteen Eighty-Four",1949,0
+4,"Jane Austen","Pride and Prejudice",1813,1
+5,"F. Scott Fitzgerald","The Great Gatsby",1925,0
+6,"Leo Tolstoy","War and Peace",1869,1
+7,"George R.R. Martin","A Game of Thrones",1996,0
+8,"Mark Twain","The Adventures of Huckleberry Finn",1884,1
+9,"J.D. Salinger","The Catcher in the Rye",1951,0
+10,"Harper Lee","To Kill a Mockingbird",1960,1
+11,"Charles Dickens","Great Expectations",1861,0
+12,"Gabriel Garcia Marquez","One Hundred Years of Solitude",1967,1
+13,"Herman Melville","Moby-Dick",1851,0
+14,"Toni Morrison","Beloved",1987,1
+15,"Virginia Woolf","Mrs. Dalloway",1925,0
+16,"Ernest Hemingway","The Old Man and the Sea",1952,1
+17,"Fyodor Dostoevsky","Crime and Punishment",1866,0
+18,"Arthur Conan Doyle","The Adventures of Sherlock Holmes",1892,1
+19,"Victor Hugo","Les Misérables",1862,0
+20,"Eric Maria Remarqe","All Quiet on the Western Front",1920,1
+21,"Charlotte Brontë","Jane Eyre",1847,0
+22,"J.R.R. Tolkien","The Hobbit",1937,1
+23,"Emily Brontë","Wuthering Heights",1847,0
+24,"Ray Bradbury","Fahrenheit 451",1953,1
+25,"Jules Verne","Twenty Thousand Leagues Under the Sea",1870,0
+26,"Aldous Huxley","Brave New World",1932,1
+27,"Herman Hesse","Siddhartha",1922,0
+28,"Lewis Carroll","Alice's Adventures in Wonderland",1865,1
+29,"Margaret Atwood","The Handmaid's Tale",1985,0
+30,"Joseph Heller","Catch-22",1961,1
+31,"John Steinbeck","Of Mice and Men",1937,0
+32,"George Orwell","Animal Farm",1945,1
+33,"Tolkien","The Silmarillion",1977,0
+34,"Anthony Burgess","A Clockwork Orange",1962,1
+35,"J.D. Salinger","Nine Stories",1953,0
+36,"John Green","The Fault in Our Stars",2012,1
+37,"Ayn Rand","Atlas Shrugged",1957,0
+38,"Kurt Vonnegut","Slaughterhouse-Five",1969,1
+39,"Ernest Hemingway","For Whom the Bell Tolls",1940,0
+40,"Ken Kesey","One Flew Over the Cuckoo's Nest",1962,1
+41,"Philip K. Dick","Do Androids Dream of Electric Sheep?",1968,0
+42,"Miguel de Cervantes","Don Quixote",1605,1
+43,"Markus Zusak","The Book Thief",2005,0
+44,"Agatha Christie","Murder on the Orient Express",1934,1
+45,"Michael Ende","The Neverending Story",1979,0
+46,"Roald Dahl","Charlie and the Chocolate Factory",1964,1
+47,"Harper Lee","Go Set a Watchman",2015,0
+48,"Margaret Mitchell","Gone with the Wind",1936,1
+49,"J.K. Rowling","Harry Potter and the Chamber of Secrets",1998,0
+50,"George Orwell","Homage to Catalonia",1938,1

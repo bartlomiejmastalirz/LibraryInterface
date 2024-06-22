@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblUserName = new Label();
+            lblName = new Label();
             panel1 = new Panel();
             labelNameless = new Label();
             pictureBox1 = new PictureBox();
@@ -40,19 +40,26 @@
             panel4 = new Panel();
             panel3 = new Panel();
             label2 = new Label();
+            lblSurname = new Label();
+            lblLogin = new Label();
+            label3 = new Label();
+            panel2 = new Panel();
+            panel8 = new Panel();
+            panel9 = new Panel();
+            lblBooks = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // lblUserName
+            // lblName
             // 
-            lblUserName.AutoSize = true;
-            lblUserName.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            lblUserName.Location = new Point(42, 138);
-            lblUserName.Name = "lblUserName";
-            lblUserName.Size = new Size(44, 26);
-            lblUserName.TabIndex = 0;
-            lblUserName.Text = "null";
+            lblName.AutoSize = true;
+            lblName.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            lblName.Location = new Point(126, 181);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(64, 26);
+            lblName.TabIndex = 0;
+            lblName.Text = "Name";
             // 
             // panel1
             // 
@@ -154,11 +161,73 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            label2.Location = new Point(26, 112);
+            label2.Location = new Point(26, 143);
             label2.Name = "label2";
             label2.Size = new Size(196, 26);
             label2.TabIndex = 18;
             label2.Text = "Your user information";
+            // 
+            // lblSurname
+            // 
+            lblSurname.AutoSize = true;
+            lblSurname.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            lblSurname.Location = new Point(126, 233);
+            lblSurname.Name = "lblSurname";
+            lblSurname.Size = new Size(89, 26);
+            lblSurname.TabIndex = 19;
+            lblSurname.Text = "Surname";
+            // 
+            // lblLogin
+            // 
+            lblLogin.AutoSize = true;
+            lblLogin.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            lblLogin.Location = new Point(126, 285);
+            lblLogin.Name = "lblLogin";
+            lblLogin.Size = new Size(58, 26);
+            lblLogin.TabIndex = 20;
+            lblLogin.Text = "Login";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            label3.Location = new Point(26, 181);
+            label3.Name = "label3";
+            label3.Size = new Size(94, 130);
+            label3.TabIndex = 21;
+            label3.Text = "Name:\r\n\r\nSurname:\r\n\r\nLogin:\r\n";
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(229, 203, 186);
+            panel2.Location = new Point(26, 210);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(276, 10);
+            panel2.TabIndex = 22;
+            // 
+            // panel8
+            // 
+            panel8.BackColor = Color.FromArgb(229, 203, 186);
+            panel8.Location = new Point(26, 262);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(276, 10);
+            panel8.TabIndex = 23;
+            // 
+            // panel9
+            // 
+            panel9.BackColor = Color.FromArgb(229, 203, 186);
+            panel9.Location = new Point(26, 314);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(276, 10);
+            panel9.TabIndex = 24;
+            // 
+            // lblBooks
+            // 
+            lblBooks.AutoSize = true;
+            lblBooks.Location = new Point(535, 205);
+            lblBooks.Name = "lblBooks";
+            lblBooks.Size = new Size(0, 15);
+            lblBooks.TabIndex = 25;
             // 
             // MyProfileForm
             // 
@@ -167,9 +236,16 @@
             BackColor = Color.FromArgb(246, 238, 227);
             ClientSize = new Size(861, 561);
             ControlBox = false;
+            Controls.Add(lblBooks);
+            Controls.Add(panel9);
+            Controls.Add(panel8);
+            Controls.Add(panel2);
+            Controls.Add(label3);
+            Controls.Add(lblLogin);
+            Controls.Add(lblSurname);
             Controls.Add(label2);
             Controls.Add(btnGoBack);
-            Controls.Add(lblUserName);
+            Controls.Add(lblName);
             Controls.Add(label1);
             Controls.Add(panel7);
             Controls.Add(panel6);
@@ -189,7 +265,7 @@
 
         #endregion
 
-        private Label lblUserName;
+        private Label lblName;
         private Panel panel1;
         private Label label1;
         private Panel panel7;
@@ -201,5 +277,12 @@
         private Button btnGoBack;
         private Label labelNameless;
         private Label label2;
+        private Label lblSurname;
+        private Label lblLogin;
+        private Label label3;
+        private Panel panel2;
+        private Panel panel8;
+        private Panel panel9;
+        private Label lblBooks;
     }
 }
