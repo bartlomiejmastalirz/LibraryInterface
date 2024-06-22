@@ -8,6 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using CsvHelper;
+using System.Globalization;
 
 namespace WFInterface
 {
@@ -16,6 +19,8 @@ namespace WFInterface
         //DO NOT DELETE
         private User _currentUser;
         private MyProfileForm _profileForm; // Store the instance of MyProfileForm
+        private List<Book> _allBooks;
+        private List<Book> _filteredBooks;
 
         //DO NOT DELETE
         public ActualInterface(User user)
@@ -23,8 +28,20 @@ namespace WFInterface
             InitializeComponent();
             _currentUser = user;
             DisplayUserInfo();
+            LoadBooks();
+            TxtSearch.TextChanged += TxtSearch_TextChanged;
         }
+        private void LoadBooks()
+        {
+            using (var reader = new StreamReader("books.csv"))
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            {
+                _allBooks = csv.GetRecords<Book>().ToList();
+            }
 
+            _filteredBooks = new List<Book>(_allBooks);
+            UpdateBookList();
+        }
         //DO NOT DELETE
         private void btnLogout_Click(object sender, EventArgs e)
         {
@@ -50,9 +67,30 @@ namespace WFInterface
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-
+            string searchText = TxtSearch.Text.ToLower();
+            if (string.IsNullOrEmpty(searchText) || searchText == "search for books...")
+            {
+                _filteredBooks = new List<Book>(_allBooks); // Reset to all books if search text is empty
+            }
+            else
+            {
+                _filteredBooks = _allBooks
+                    .Where(book => book.Title.ToLower().Contains(searchText) || book.Author.ToLower().Contains(searchText))
+                    .ToList();
+            }
+            UpdateBookList();
         }
-        
+        private void UpdateBookList()
+        {
+            bookListView.DataSource = null;
+            bookListView.DataSource = _filteredBooks;
+
+            if (bookListView.Columns["BookID"] != null)
+            {
+                bookListView.Columns.Remove("BookID");
+            }
+        }
+
         private void TxtSearch_Enter(object sender, EventArgs e)
         {
             if (TxtSearch.Text == "Search for books...")
@@ -120,5 +158,23 @@ namespace WFInterface
             childForm.Location = parentForm.Location;
         }
 
+    }
+    public class User
+    {
+        public string Login { get; set; } = "";
+        public string Password { get; set; } = "";
+        public string UserName { get; set; } = "";
+        public string UserSurname { get; set; } = "";
+        public bool IsAdmin { get; set; } = false;
+        public List<int> BooksRented { get; set; } = new List<int>();
+    }
+
+    public class Book
+    {
+        public int BookID { get; set; } = 0;
+        public string Title { get; set; } = "";
+        public string Author { get; set; } = "";
+        public string Year { get; set; } = "";
+        public bool Rented { get; set; } = false;
     }
 }
