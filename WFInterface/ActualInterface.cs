@@ -208,6 +208,12 @@ namespace WFInterface
             childForm.Location = parentForm.Location;
         }
 
+        private void btnAdminPanel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AdminPanel adminPanel = new AdminPanel(this);
+            adminPanel.Show();
+        }
     }
     public class User
     {
