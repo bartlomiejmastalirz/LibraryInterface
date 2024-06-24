@@ -1,3 +1,4 @@
+using System.Data.Entity;
 using WFInterface;
 
 namespace InterfaceLogin
@@ -10,9 +11,22 @@ namespace InterfaceLogin
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string dataDirectory = Path.Combine(baseDirectory, "App_Data");
+            if (!Directory.Exists(dataDirectory))
+            {
+                Directory.CreateDirectory(dataDirectory);
+            }
+
+            // Database path
+            string dbPath = Path.Combine(dataDirectory, "Library.db");
+
+            // Initialize database
+            SQLiteInit.InitializeDatabase(dbPath);
+
+            // Start the application
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
     }

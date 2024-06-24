@@ -1,5 +1,7 @@
 using CsvHelper;
 using CsvHelper.Configuration;
+using Dapper;
+using System.Data.SQLite;
 using System.Globalization;
 
 namespace WFInterface
@@ -7,6 +9,8 @@ namespace WFInterface
 
     public partial class Form1 : Form
     {
+        private string _dbPath = "Library.db";
+
         public Form1()
         {
             InitializeComponent();
@@ -24,7 +28,6 @@ namespace WFInterface
 
                 if (loggedInUser != null)
                 {
-                    // Pass user data to the main form
                     ActualInterface actualInterface = new ActualInterface(loggedInUser);
                     actualInterface.Show();
                     this.Hide();
@@ -87,94 +90,28 @@ namespace WFInterface
             }
         }
 
-        //A login function
-        //private void PerformLogin()
-        //{
-        //    string username = TxtUsername.Text;
-        //    string password = TxtPassword.Text;
 
-        //    User user = GetUserFromCsv(username);
-
-        //    if (user != null && ValidatePassword(user)) //checks if user exists and input password is correct
-        //    {
-        //        ActualInterface actualInterface = new ActualInterface(user);
-        //        actualInterface.Show();
-        //        this.Hide();
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("The username or password are incorrect. Try again.");
-        //    }
-        //}
-
-        //With the help of CSVHelper we get all the user data already here and push it to next forms
-        //private User GetUserFromCsv(string username)
-        //{
-        //    string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "users.csv");
-
-        //    using (var reader = new StreamReader(filePath))
-        //    using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
-        //    {
-        //        csv.Read();
-        //        csv.ReadHeader();
-        //        while (csv.Read())
-        //        {
-        //            var user = new User         //Makes a new user object with the data parsed from CSV
-        //            {
-        //                Login = csv.GetField<string>("Login"),
-        //                Password = csv.GetField<string>("Password"),
-        //                UserName = csv.GetField<string>("UserName"),
-        //                UserSurname = csv.GetField<string>("UserSurname"),
-        //                IsAdmin = csv.GetField<bool>("IsAdmin"),
-        //                BooksRented = csv.GetField<string>("BooksRented")
-        //                                .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
-        //                                .Select(int.Parse)
-        //                                .ToList()
-                        
-        //            };
-
-        //            if (user.Login == username)
-        //            {
-        //                return user;
-        //            }
-        //        }
-        //    }
-        //    return null;                    //A bit dangerous but will do lol
-        //}
 
 
         private User AuthenticateUser(string login, string password)
         {
-            using (var reader = new StreamReader("users.csv"))
-            using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture) { HasHeaderRecord = true }))
+            using (var connection = new SQLiteConnection($"Data Source={_dbPath};Version=3;"))
             {
-                var records = csv.GetRecords<dynamic>().ToList();
-                foreach (var record in records)
+                connection.Open();
+
+                string query = "SELECT * FROM Users WHERE Login = @Login AND Password = @Password";
+                var user = connection.Query<User>(query, new { Login = login, Password = password }).FirstOrDefault();
+
+                if (user != null)
                 {
-                    if (record.Login == login && record.Password == password)
-                    {
-                        var user = new User
-                        {
-                            Login = record.Login,
-                            Password = record.Password,
-                            UserName = record.UserName,
-                            UserSurname = record.UserSurname,
-                            IsAdmin = bool.Parse(record.IsAdmin)
-                        };
-                        user.ParseBooksRented(record.BooksRented);
-                        return user;
-                    }
+                    // Parsing BooksRented into a list
+                    user.BooksRented = !string.IsNullOrEmpty(user.BooksRentedString)
+                                        ? user.BooksRentedString.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList()
+                                        : new List<int>();
                 }
+
+                return user;
             }
-
-            return null;
-        }
-
-
-        private bool ValidatePassword(User user)    //certified hackerman password validation, very safe indeed
-        {
-            string password = TxtPassword.Text;
-            return user.Password == password;
         }
     }
 }
