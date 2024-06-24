@@ -55,9 +55,9 @@
             // 
             lblName.AutoSize = true;
             lblName.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            lblName.Location = new Point(126, 181);
+            lblName.Location = new Point(144, 241);
             lblName.Name = "lblName";
-            lblName.Size = new Size(64, 26);
+            lblName.Size = new Size(82, 33);
             lblName.TabIndex = 0;
             lblName.Text = "Name";
             // 
@@ -66,18 +66,19 @@
             panel1.BackColor = Color.FromArgb(229, 203, 186);
             panel1.Controls.Add(labelNameless);
             panel1.Controls.Add(pictureBox1);
-            panel1.Location = new Point(-1, -2);
+            panel1.Location = new Point(-1, -3);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(489, 76);
+            panel1.Size = new Size(559, 101);
             panel1.TabIndex = 1;
             // 
             // labelNameless
             // 
             labelNameless.AutoSize = true;
             labelNameless.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            labelNameless.Location = new Point(84, 20);
+            labelNameless.Location = new Point(96, 27);
             labelNameless.Name = "labelNameless";
-            labelNameless.Size = new Size(259, 39);
+            labelNameless.Size = new Size(325, 49);
             labelNameless.TabIndex = 18;
             labelNameless.Text = "NAMELESS Library";
             // 
@@ -85,9 +86,10 @@
             // 
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = Properties.Resources.noun_library_71245;
-            pictureBox1.Location = new Point(13, 3);
+            pictureBox1.Location = new Point(15, 4);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(65, 80);
+            pictureBox1.Size = new Size(74, 107);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 16;
             pictureBox1.TabStop = false;
@@ -99,10 +101,9 @@
             btnGoBack.FlatStyle = FlatStyle.Flat;
             btnGoBack.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
             btnGoBack.ForeColor = Color.FromArgb(246, 238, 227);
-            btnGoBack.Location = new Point(755, 18);
-            btnGoBack.Margin = new Padding(3, 2, 3, 2);
+            btnGoBack.Location = new Point(863, 24);
             btnGoBack.Name = "btnGoBack";
-            btnGoBack.Size = new Size(94, 36);
+            btnGoBack.Size = new Size(107, 48);
             btnGoBack.TabIndex = 17;
             btnGoBack.Text = "Go back";
             btnGoBack.UseVisualStyleBackColor = false;
@@ -111,59 +112,64 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(26, 503);
+            label1.Location = new Point(30, 671);
             label1.Name = "label1";
-            label1.Size = new Size(130, 15);
+            label1.Size = new Size(161, 20);
             label1.TabIndex = 15;
             label1.Text = "Nie usuwać, przybornik";
             // 
             // panel7
             // 
             panel7.BackColor = Color.FromArgb(217, 189, 165);
-            panel7.Location = new Point(144, 521);
+            panel7.Location = new Point(165, 695);
+            panel7.Margin = new Padding(3, 4, 3, 4);
             panel7.Name = "panel7";
-            panel7.Size = new Size(28, 25);
+            panel7.Size = new Size(32, 33);
             panel7.TabIndex = 14;
             // 
             // panel6
             // 
             panel6.BackColor = Color.FromArgb(229, 203, 186);
-            panel6.Location = new Point(110, 521);
+            panel6.Location = new Point(126, 695);
+            panel6.Margin = new Padding(3, 4, 3, 4);
             panel6.Name = "panel6";
-            panel6.Size = new Size(28, 25);
+            panel6.Size = new Size(32, 33);
             panel6.TabIndex = 11;
             // 
             // panel5
             // 
             panel5.BackColor = Color.FromArgb(229, 222, 207);
-            panel5.Location = new Point(76, 521);
+            panel5.Location = new Point(87, 695);
+            panel5.Margin = new Padding(3, 4, 3, 4);
             panel5.Name = "panel5";
-            panel5.Size = new Size(28, 25);
+            panel5.Size = new Size(32, 33);
             panel5.TabIndex = 13;
             // 
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(238, 231, 215);
-            panel4.Location = new Point(42, 521);
+            panel4.Location = new Point(48, 695);
+            panel4.Margin = new Padding(3, 4, 3, 4);
             panel4.Name = "panel4";
-            panel4.Size = new Size(28, 25);
+            panel4.Size = new Size(32, 33);
             panel4.TabIndex = 12;
             // 
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(246, 238, 227);
-            panel3.Location = new Point(8, 521);
+            panel3.Location = new Point(9, 695);
+            panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(28, 25);
+            panel3.Size = new Size(32, 33);
             panel3.TabIndex = 10;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            label2.Location = new Point(26, 143);
+            label2.Location = new Point(30, 191);
             label2.Name = "label2";
-            label2.Size = new Size(196, 26);
+            label2.Size = new Size(250, 33);
             label2.TabIndex = 18;
             label2.Text = "Your user information";
             // 
@@ -171,9 +177,9 @@
             // 
             lblSurname.AutoSize = true;
             lblSurname.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            lblSurname.Location = new Point(126, 233);
+            lblSurname.Location = new Point(144, 311);
             lblSurname.Name = "lblSurname";
-            lblSurname.Size = new Size(89, 26);
+            lblSurname.Size = new Size(115, 33);
             lblSurname.TabIndex = 19;
             lblSurname.Text = "Surname";
             // 
@@ -181,9 +187,9 @@
             // 
             lblLogin.AutoSize = true;
             lblLogin.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            lblLogin.Location = new Point(126, 285);
+            lblLogin.Location = new Point(144, 380);
             lblLogin.Name = "lblLogin";
-            lblLogin.Size = new Size(58, 26);
+            lblLogin.Size = new Size(75, 33);
             lblLogin.TabIndex = 20;
             lblLogin.Text = "Login";
             // 
@@ -191,50 +197,53 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            label3.Location = new Point(26, 181);
+            label3.Location = new Point(30, 241);
             label3.Name = "label3";
-            label3.Size = new Size(94, 130);
+            label3.Size = new Size(119, 165);
             label3.TabIndex = 21;
             label3.Text = "Name:\r\n\r\nSurname:\r\n\r\nLogin:\r\n";
             // 
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(229, 203, 186);
-            panel2.Location = new Point(26, 210);
+            panel2.Location = new Point(30, 280);
+            panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(276, 10);
+            panel2.Size = new Size(315, 13);
             panel2.TabIndex = 22;
             // 
             // panel8
             // 
             panel8.BackColor = Color.FromArgb(229, 203, 186);
-            panel8.Location = new Point(26, 262);
+            panel8.Location = new Point(30, 349);
+            panel8.Margin = new Padding(3, 4, 3, 4);
             panel8.Name = "panel8";
-            panel8.Size = new Size(276, 10);
+            panel8.Size = new Size(315, 13);
             panel8.TabIndex = 23;
             // 
             // panel9
             // 
             panel9.BackColor = Color.FromArgb(229, 203, 186);
-            panel9.Location = new Point(26, 314);
+            panel9.Location = new Point(30, 419);
+            panel9.Margin = new Padding(3, 4, 3, 4);
             panel9.Name = "panel9";
-            panel9.Size = new Size(276, 10);
+            panel9.Size = new Size(315, 13);
             panel9.TabIndex = 24;
             // 
             // lblBooks
             // 
             lblBooks.AutoSize = true;
-            lblBooks.Location = new Point(535, 205);
+            lblBooks.Location = new Point(611, 273);
             lblBooks.Name = "lblBooks";
-            lblBooks.Size = new Size(0, 15);
+            lblBooks.Size = new Size(0, 20);
             lblBooks.TabIndex = 25;
             // 
             // MyProfileForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(246, 238, 227);
-            ClientSize = new Size(861, 561);
+            ClientSize = new Size(984, 748);
             ControlBox = false;
             Controls.Add(lblBooks);
             Controls.Add(panel9);
@@ -254,7 +263,9 @@
             Controls.Add(panel3);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "MyProfileForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "My User Profile";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
