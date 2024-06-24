@@ -1,0 +1,240 @@
+namespace WFInterface
+{
+    partial class AdminPanel
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            btnAddUser = new Button();
+            btnRemoveUser = new Button();
+            btnAddBook = new Button();
+            btnRemoveBook = new Button();
+            btnReturn = new Button();
+            panel1 = new Panel();
+            label1 = new Label();
+            pictureBox1 = new PictureBox();
+            label2 = new Label();
+            panel7 = new Panel();
+            panel6 = new Panel();
+            panel5 = new Panel();
+            panel4 = new Panel();
+            panel3 = new Panel();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
+            // 
+            // btnAddUser
+            // 
+            btnAddUser.BackColor = Color.FromArgb(217, 189, 165);
+            btnAddUser.FlatAppearance.BorderColor = Color.FromArgb(217, 189, 165);
+            btnAddUser.FlatAppearance.BorderSize = 0;
+            btnAddUser.FlatStyle = FlatStyle.Flat;
+            btnAddUser.Font = new Font("Calibri", 18F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            btnAddUser.Location = new Point(81, 120);
+            btnAddUser.Name = "btnAddUser";
+            btnAddUser.Size = new Size(162, 51);
+            btnAddUser.TabIndex = 0;
+            btnAddUser.Text = "Add user";
+            btnAddUser.UseVisualStyleBackColor = false;
+            // 
+            // btnRemoveUser
+            // 
+            btnRemoveUser.BackColor = Color.FromArgb(217, 189, 165);
+            btnRemoveUser.FlatAppearance.BorderSize = 0;
+            btnRemoveUser.FlatStyle = FlatStyle.Flat;
+            btnRemoveUser.Font = new Font("Calibri", 18F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            btnRemoveUser.Location = new Point(263, 120);
+            btnRemoveUser.Name = "btnRemoveUser";
+            btnRemoveUser.Size = new Size(162, 51);
+            btnRemoveUser.TabIndex = 1;
+            btnRemoveUser.Text = "Remove user";
+            btnRemoveUser.UseVisualStyleBackColor = false;
+            // 
+            // btnAddBook
+            // 
+            btnAddBook.BackColor = Color.FromArgb(217, 189, 165);
+            btnAddBook.FlatAppearance.BorderSize = 0;
+            btnAddBook.FlatStyle = FlatStyle.Flat;
+            btnAddBook.Font = new Font("Calibri", 18F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            btnAddBook.Location = new Point(81, 191);
+            btnAddBook.Name = "btnAddBook";
+            btnAddBook.Size = new Size(162, 51);
+            btnAddBook.TabIndex = 2;
+            btnAddBook.Text = "Add book";
+            btnAddBook.UseVisualStyleBackColor = false;
+            // 
+            // btnRemoveBook
+            // 
+            btnRemoveBook.BackColor = Color.FromArgb(217, 189, 165);
+            btnRemoveBook.FlatAppearance.BorderSize = 0;
+            btnRemoveBook.FlatStyle = FlatStyle.Flat;
+            btnRemoveBook.Font = new Font("Calibri", 18F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            btnRemoveBook.Location = new Point(263, 191);
+            btnRemoveBook.Name = "btnRemoveBook";
+            btnRemoveBook.Size = new Size(162, 51);
+            btnRemoveBook.TabIndex = 3;
+            btnRemoveBook.Text = "Remove book";
+            btnRemoveBook.UseVisualStyleBackColor = false;
+            // 
+            // btnReturn
+            // 
+            btnReturn.BackColor = Color.FromArgb(217, 189, 165);
+            btnReturn.FlatAppearance.BorderSize = 0;
+            btnReturn.FlatStyle = FlatStyle.Flat;
+            btnReturn.Font = new Font("Calibri", 18F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            btnReturn.Location = new Point(441, 18);
+            btnReturn.Name = "btnReturn";
+            btnReturn.Size = new Size(186, 51);
+            btnReturn.TabIndex = 4;
+            btnReturn.Text = "Return to menu";
+            btnReturn.UseVisualStyleBackColor = false;
+            btnReturn.Click += btnReturn_Click;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(229, 203, 186);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(btnReturn);
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(880, 87);
+            panel1.TabIndex = 5;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label1.Location = new Point(111, 22);
+            label1.Name = "label1";
+            label1.Size = new Size(184, 39);
+            label1.TabIndex = 1;
+            label1.Text = "Admin Panel";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.FromArgb(229, 203, 186);
+            pictureBox1.Image = Properties.Resources.noun_library_71245;
+            pictureBox1.Location = new Point(3, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(81, 77);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(101, 434);
+            label2.Name = "label2";
+            label2.Size = new Size(130, 15);
+            label2.TabIndex = 15;
+            label2.Text = "Nie usuwać, przybornik";
+            // 
+            // panel7
+            // 
+            panel7.BackColor = Color.FromArgb(217, 189, 165);
+            panel7.Location = new Point(219, 452);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(28, 25);
+            panel7.TabIndex = 14;
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.FromArgb(229, 203, 186);
+            panel6.Location = new Point(185, 452);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(28, 25);
+            panel6.TabIndex = 11;
+            // 
+            // panel5
+            // 
+            panel5.BackColor = Color.FromArgb(229, 222, 207);
+            panel5.Location = new Point(151, 452);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(28, 25);
+            panel5.TabIndex = 13;
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.FromArgb(238, 231, 215);
+            panel4.Location = new Point(117, 452);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(28, 25);
+            panel4.TabIndex = 12;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(246, 238, 227);
+            panel3.Location = new Point(83, 452);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(28, 25);
+            panel3.TabIndex = 10;
+            // 
+            // AdminPanel
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(246, 238, 227);
+            ClientSize = new Size(649, 514);
+            Controls.Add(label2);
+            Controls.Add(panel7);
+            Controls.Add(panel6);
+            Controls.Add(panel5);
+            Controls.Add(panel4);
+            Controls.Add(panel3);
+            Controls.Add(panel1);
+            Controls.Add(btnRemoveBook);
+            Controls.Add(btnAddBook);
+            Controls.Add(btnRemoveUser);
+            Controls.Add(btnAddUser);
+            Name = "AdminPanel";
+            StartPosition = FormStartPosition.CenterScreen;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private Button btnAddUser;
+        private Button btnRemoveUser;
+        private Button btnAddBook;
+        private Button btnRemoveBook;
+        private Button btnReturn;
+        private Panel panel1;
+        private PictureBox pictureBox1;
+        private Label label1;
+        private Label label2;
+        private Panel panel7;
+        private Panel panel6;
+        private Panel panel5;
+        private Panel panel4;
+        private Panel panel3;
+    }
+}
