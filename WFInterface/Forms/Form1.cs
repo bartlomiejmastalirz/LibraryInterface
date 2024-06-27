@@ -1,12 +1,16 @@
-using CsvHelper;
-using CsvHelper.Configuration;
-using System.Globalization;
+using System;
+using System.Data.SQLite;
+using System.Diagnostics;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace WFInterface
 {
 
     public partial class Form1 : Form
     {
+        private static readonly string dbPath = "Library.db";
+
         public Form1()
         {
             InitializeComponent();
@@ -20,18 +24,52 @@ namespace WFInterface
                 string login = TxtUsername.Text;
                 string password = TxtPassword.Text;
 
-                User loggedInUser = AuthenticateUser(login, password);
+                try
+                {
+                    using (var connection = new SQLiteConnection($"Data Source={dbPath};Version=3;"))
+                    {
+                        connection.Open();
+                        string query = "SELECT * FROM Users WHERE Login = @Login AND Password = @Password";
+                        using (var command = new SQLiteCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@Login", login);
+                            command.Parameters.AddWithValue("@Password", password);
 
-                if (loggedInUser != null)
-                {
-                    // Pass user data to the main form
-                    ActualInterface actualInterface = new ActualInterface(loggedInUser);
-                    actualInterface.Show();
-                    this.Hide();
+                            using (var reader = command.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    string userName = reader["UserName"].ToString();
+                                    string userSurname = reader["UserSurname"].ToString();
+                                    bool isAdmin = Convert.ToBoolean(reader["IsAdmin"]);
+                                    string booksRented = reader["BooksRented"].ToString();
+
+                                    User user = new User
+                                    {
+                                        Login = login,
+                                        Password = password,
+                                        UserName = userName,
+                                        UserSurname = userSurname,
+                                        IsAdmin = isAdmin,
+                                        BooksRented = booksRented.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList()
+                                    };
+
+                                    ActualInterface actualInterface = new ActualInterface(user);
+                                    actualInterface.Show();
+                                    this.Hide();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Invalid login or password.");
+                                }
+                            }
+                        }
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Invalid login or password.");
+                    MessageBox.Show($"Error during login: {ex.Message}");
+                    Debug.WriteLine($"Exception during login: {ex.Message}");
                 }
             }
 
@@ -143,38 +181,38 @@ namespace WFInterface
         //}
 
 
-        private User AuthenticateUser(string login, string password)
-        {
-            using (var reader = new StreamReader("users.csv"))
-            using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture) { HasHeaderRecord = true }))
-            {
-                var records = csv.GetRecords<dynamic>().ToList();
-                foreach (var record in records)
-                {
-                    if (record.Login == login && record.Password == password)
-                    {
-                        var user = new User
-                        {
-                            Login = record.Login,
-                            Password = record.Password,
-                            UserName = record.UserName,
-                            UserSurname = record.UserSurname,
-                            IsAdmin = bool.Parse(record.IsAdmin)
-                        };
-                        user.ParseBooksRented(record.BooksRented);
-                        return user;
-                    }
-                }
-            }
+        //private User AuthenticateUser(string login, string password)
+        //{
+        //    using (var reader = new StreamReader("users.csv"))
+        //    using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture) { HasHeaderRecord = true }))
+        //    {
+        //        var records = csv.GetRecords<dynamic>().ToList();
+        //        foreach (var record in records)
+        //        {
+        //            if (record.Login == login && record.Password == password)
+        //            {
+        //                var user = new User
+        //                {
+        //                    Login = record.Login,
+        //                    Password = record.Password,
+        //                    UserName = record.UserName,
+        //                    UserSurname = record.UserSurname,
+        //                    IsAdmin = bool.Parse(record.IsAdmin)
+        //                };
+        //                user.ParseBooksRented(record.BooksRented);
+        //                return user;
+        //            }
+        //        }
+        //    }
 
-            return null;
-        }
+        //    return null;
+        //}
 
 
-        private bool ValidatePassword(User user)    //certified hackerman password validation, very safe indeed
-        {
-            string password = TxtPassword.Text;
-            return user.Password == password;
-        }
+        //private bool ValidatePassword(User user)    //certified hackerman password validation, very safe indeed
+        //{
+        //    string password = TxtPassword.Text;
+        //    return user.Password == password;
+        //}
     }
 }

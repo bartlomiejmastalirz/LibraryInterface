@@ -10,12 +10,16 @@
 
   <ItemGroup>
     <None Remove="books.csv" />
+    <None Remove="Library.db" />
     <None Remove="users.csv" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="books.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Library.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="users.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

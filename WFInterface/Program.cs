@@ -10,8 +10,11 @@ namespace InterfaceLogin
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+
+            DatabaseInitializer.InitializeDatabase();
+
+            AddUser.AddUserToDatabase("testlogin", "testpassword", "Test1", "User1", true);
+
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
         }
