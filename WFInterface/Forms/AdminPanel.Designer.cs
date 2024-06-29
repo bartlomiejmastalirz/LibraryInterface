@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnBackToMenu = new Button();
             panel1 = new Panel();
             labelNameless = new Label();
             pictureBox1 = new PictureBox();
@@ -39,51 +38,37 @@
             panel4 = new Panel();
             panel3 = new Panel();
             panel2 = new Panel();
-            panel8 = new Panel();
-            lblAuthorAdd = new Label();
-            lblAuthorRm = new Label();
-            lblYearAdd = new Label();
-            lblYearRm = new Label();
-            lblTitleAdd = new Label();
-            lblTitleRm = new Label();
+            tbYearAdd = new TextBox();
+            tbTitleAdd = new TextBox();
+            tbAuthorAdd = new TextBox();
             btnAddBook = new Button();
+            lblTitleAdd = new Label();
+            lblYearAdd = new Label();
+            lblAuthorAdd = new Label();
+            panel8 = new Panel();
+            tbTitleRm = new TextBox();
+            tbYearRm = new TextBox();
+            tbAuthorRm = new TextBox();
             button1 = new Button();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
+            lblTitleRm = new Label();
+            lblYearRm = new Label();
+            lblAuthorRm = new Label();
+            button2 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             panel8.SuspendLayout();
             SuspendLayout();
             // 
-            // btnBackToMenu
-            // 
-            btnBackToMenu.BackColor = Color.FromArgb(217, 189, 165);
-            btnBackToMenu.FlatAppearance.BorderSize = 0;
-            btnBackToMenu.FlatStyle = FlatStyle.Flat;
-            btnBackToMenu.Font = new Font("Calibri", 18F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            btnBackToMenu.Location = new Point(697, 15);
-            btnBackToMenu.Name = "btnBackToMenu";
-            btnBackToMenu.Size = new Size(220, 73);
-            btnBackToMenu.TabIndex = 3;
-            btnBackToMenu.Text = "Back to menu";
-            btnBackToMenu.UseVisualStyleBackColor = false;
-            btnBackToMenu.Click += btnBackToMenu_Click;
-            // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(229, 203, 186);
             panel1.Controls.Add(labelNameless);
             panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(btnBackToMenu);
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(992, 101);
+            panel1.Size = new Size(559, 101);
             panel1.TabIndex = 5;
             // 
             // labelNameless
@@ -165,9 +150,9 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(229, 203, 186);
-            panel2.Controls.Add(textBox3);
-            panel2.Controls.Add(textBox2);
-            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(tbYearAdd);
+            panel2.Controls.Add(tbTitleAdd);
+            panel2.Controls.Add(tbAuthorAdd);
             panel2.Controls.Add(btnAddBook);
             panel2.Controls.Add(lblTitleAdd);
             panel2.Controls.Add(lblYearAdd);
@@ -177,60 +162,44 @@
             panel2.Size = new Size(339, 233);
             panel2.TabIndex = 22;
             // 
-            // panel8
+            // tbYearAdd
             // 
-            panel8.BackColor = Color.FromArgb(229, 203, 186);
-            panel8.Controls.Add(textBox4);
-            panel8.Controls.Add(textBox5);
-            panel8.Controls.Add(textBox6);
-            panel8.Controls.Add(button1);
-            panel8.Controls.Add(lblTitleRm);
-            panel8.Controls.Add(lblYearRm);
-            panel8.Controls.Add(lblAuthorRm);
-            panel8.Location = new Point(486, 165);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(339, 233);
-            panel8.TabIndex = 23;
+            tbYearAdd.Location = new Point(109, 67);
+            tbYearAdd.Name = "tbYearAdd";
+            tbYearAdd.Size = new Size(204, 27);
+            tbYearAdd.TabIndex = 7;
+            tbYearAdd.TextChanged += tbYearAdd_TextChanged;
             // 
-            // lblAuthorAdd
+            // tbTitleAdd
             // 
-            lblAuthorAdd.AutoSize = true;
-            lblAuthorAdd.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            lblAuthorAdd.Location = new Point(20, 22);
-            lblAuthorAdd.Name = "lblAuthorAdd";
-            lblAuthorAdd.Size = new Size(83, 28);
-            lblAuthorAdd.TabIndex = 0;
-            lblAuthorAdd.Text = "Author:";
+            tbTitleAdd.Location = new Point(109, 109);
+            tbTitleAdd.Name = "tbTitleAdd";
+            tbTitleAdd.Size = new Size(204, 27);
+            tbTitleAdd.TabIndex = 6;
+            tbTitleAdd.TextChanged += tbTitleAdd_TextChanged;
             // 
-            // lblAuthorRm
+            // tbAuthorAdd
             // 
-            lblAuthorRm.AutoSize = true;
-            lblAuthorRm.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            lblAuthorRm.Location = new Point(28, 22);
-            lblAuthorRm.Name = "lblAuthorRm";
-            lblAuthorRm.Size = new Size(83, 28);
-            lblAuthorRm.TabIndex = 1;
-            lblAuthorRm.Text = "Author:";
+            tbAuthorAdd.Location = new Point(109, 22);
+            tbAuthorAdd.Name = "tbAuthorAdd";
+            tbAuthorAdd.Size = new Size(204, 27);
+            tbAuthorAdd.TabIndex = 5;
+            tbAuthorAdd.TextChanged += tbAuthorAdd_TextChanged;
             // 
-            // lblYearAdd
+            // btnAddBook
             // 
-            lblYearAdd.AutoSize = true;
-            lblYearAdd.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            lblYearAdd.Location = new Point(20, 66);
-            lblYearAdd.Name = "lblYearAdd";
-            lblYearAdd.Size = new Size(57, 28);
-            lblYearAdd.TabIndex = 1;
-            lblYearAdd.Text = "Year:";
-            // 
-            // lblYearRm
-            // 
-            lblYearRm.AutoSize = true;
-            lblYearRm.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            lblYearRm.Location = new Point(28, 66);
-            lblYearRm.Name = "lblYearRm";
-            lblYearRm.Size = new Size(57, 28);
-            lblYearRm.TabIndex = 2;
-            lblYearRm.Text = "Year:";
+            btnAddBook.BackColor = Color.FromArgb(217, 189, 165);
+            btnAddBook.FlatAppearance.BorderSize = 0;
+            btnAddBook.FlatStyle = FlatStyle.Flat;
+            btnAddBook.Font = new Font("Calibri", 15.75F, FontStyle.Bold);
+            btnAddBook.ForeColor = Color.FromArgb(246, 238, 227);
+            btnAddBook.Location = new Point(83, 162);
+            btnAddBook.Name = "btnAddBook";
+            btnAddBook.Size = new Size(189, 48);
+            btnAddBook.TabIndex = 4;
+            btnAddBook.Text = "Add book";
+            btnAddBook.UseVisualStyleBackColor = false;
+            btnAddBook.Click += btnAddBook_Click;
             // 
             // lblTitleAdd
             // 
@@ -242,6 +211,76 @@
             lblTitleAdd.TabIndex = 3;
             lblTitleAdd.Text = "Title:";
             // 
+            // lblYearAdd
+            // 
+            lblYearAdd.AutoSize = true;
+            lblYearAdd.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblYearAdd.Location = new Point(20, 66);
+            lblYearAdd.Name = "lblYearAdd";
+            lblYearAdd.Size = new Size(57, 28);
+            lblYearAdd.TabIndex = 1;
+            lblYearAdd.Text = "Year:";
+            // 
+            // lblAuthorAdd
+            // 
+            lblAuthorAdd.AutoSize = true;
+            lblAuthorAdd.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblAuthorAdd.Location = new Point(20, 22);
+            lblAuthorAdd.Name = "lblAuthorAdd";
+            lblAuthorAdd.Size = new Size(83, 28);
+            lblAuthorAdd.TabIndex = 0;
+            lblAuthorAdd.Text = "Author:";
+            // 
+            // panel8
+            // 
+            panel8.BackColor = Color.FromArgb(229, 203, 186);
+            panel8.Controls.Add(tbTitleRm);
+            panel8.Controls.Add(tbYearRm);
+            panel8.Controls.Add(tbAuthorRm);
+            panel8.Controls.Add(button1);
+            panel8.Controls.Add(lblTitleRm);
+            panel8.Controls.Add(lblYearRm);
+            panel8.Controls.Add(lblAuthorRm);
+            panel8.Location = new Point(486, 165);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(339, 233);
+            panel8.TabIndex = 23;
+            // 
+            // tbTitleRm
+            // 
+            tbTitleRm.Location = new Point(117, 112);
+            tbTitleRm.Name = "tbTitleRm";
+            tbTitleRm.Size = new Size(204, 27);
+            tbTitleRm.TabIndex = 8;
+            // 
+            // tbYearRm
+            // 
+            tbYearRm.Location = new Point(117, 66);
+            tbYearRm.Name = "tbYearRm";
+            tbYearRm.Size = new Size(204, 27);
+            tbYearRm.TabIndex = 9;
+            // 
+            // tbAuthorRm
+            // 
+            tbAuthorRm.Location = new Point(117, 22);
+            tbAuthorRm.Name = "tbAuthorRm";
+            tbAuthorRm.Size = new Size(204, 27);
+            tbAuthorRm.TabIndex = 10;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(217, 189, 165);
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Calibri", 15.75F, FontStyle.Bold);
+            button1.ForeColor = Color.FromArgb(246, 238, 227);
+            button1.Location = new Point(90, 162);
+            button1.Name = "button1";
+            button1.Size = new Size(189, 48);
+            button1.TabIndex = 5;
+            button1.Text = "Remove book";
+            button1.UseVisualStyleBackColor = false;
+            // 
             // lblTitleRm
             // 
             lblTitleRm.AutoSize = true;
@@ -252,82 +291,49 @@
             lblTitleRm.TabIndex = 4;
             lblTitleRm.Text = "Title:";
             // 
-            // btnAddBook
+            // lblYearRm
             // 
-            btnAddBook.BackColor = Color.FromArgb(217, 189, 165);
-            btnAddBook.FlatAppearance.BorderSize = 0;
-            btnAddBook.FlatStyle = FlatStyle.Flat;
-            btnAddBook.Font = new Font("Calibri", 18F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            btnAddBook.Location = new Point(74, 162);
-            btnAddBook.Name = "btnAddBook";
-            btnAddBook.Size = new Size(202, 54);
-            btnAddBook.TabIndex = 4;
-            btnAddBook.Text = "Add book";
-            btnAddBook.UseVisualStyleBackColor = false;
+            lblYearRm.AutoSize = true;
+            lblYearRm.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblYearRm.Location = new Point(28, 66);
+            lblYearRm.Name = "lblYearRm";
+            lblYearRm.Size = new Size(57, 28);
+            lblYearRm.TabIndex = 2;
+            lblYearRm.Text = "Year:";
             // 
-            // button1
+            // lblAuthorRm
             // 
-            button1.BackColor = Color.FromArgb(217, 189, 165);
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Calibri", 18F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            button1.Location = new Point(69, 162);
-            button1.Name = "button1";
-            button1.Size = new Size(202, 54);
-            button1.TabIndex = 5;
-            button1.Text = "Remove book";
-            button1.UseVisualStyleBackColor = false;
+            lblAuthorRm.AutoSize = true;
+            lblAuthorRm.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblAuthorRm.Location = new Point(28, 22);
+            lblAuthorRm.Name = "lblAuthorRm";
+            lblAuthorRm.Size = new Size(83, 28);
+            lblAuthorRm.TabIndex = 1;
+            lblAuthorRm.Text = "Author:";
             // 
-            // textBox1
+            // button2
             // 
-            textBox1.Location = new Point(109, 22);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(204, 27);
-            textBox1.TabIndex = 5;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(84, 109);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(204, 27);
-            textBox2.TabIndex = 6;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(83, 69);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(204, 27);
-            textBox3.TabIndex = 7;
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(92, 109);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(204, 27);
-            textBox4.TabIndex = 8;
-            // 
-            // textBox5
-            // 
-            textBox5.Location = new Point(91, 66);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(204, 27);
-            textBox5.TabIndex = 9;
-            // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(117, 22);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(204, 27);
-            textBox6.TabIndex = 10;
+            button2.BackColor = Color.FromArgb(217, 189, 165);
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Calibri", 15.75F, FontStyle.Bold);
+            button2.ForeColor = Color.FromArgb(246, 238, 227);
+            button2.Location = new Point(824, 29);
+            button2.Name = "button2";
+            button2.Size = new Size(130, 48);
+            button2.TabIndex = 3;
+            button2.Text = "Go Back";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += btnBackToMenu_Click;
             // 
             // AdminPanel
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.FromArgb(246, 238, 227);
-            ClientSize = new Size(943, 748);
+            ClientSize = new Size(984, 748);
             Controls.Add(panel8);
             Controls.Add(panel2);
+            Controls.Add(button2);
             Controls.Add(label1);
             Controls.Add(panel7);
             Controls.Add(panel6);
@@ -335,6 +341,7 @@
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "AdminPanel";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AdminPanel";
@@ -350,7 +357,6 @@
         }
 
         #endregion
-        private Button btnBackToMenu;
         private Panel panel1;
         private Label labelNameless;
         private PictureBox pictureBox1;
@@ -370,11 +376,12 @@
         private Label lblTitleRm;
         private Label lblYearRm;
         private Label lblAuthorRm;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
-        private TextBox textBox4;
-        private TextBox textBox5;
-        private TextBox textBox6;
+        private TextBox tbYearAdd;
+        private TextBox tbTitleAdd;
+        private TextBox tbAuthorAdd;
+        private TextBox tbTitleRm;
+        private TextBox tbYearRm;
+        private TextBox tbAuthorRm;
+        private Button button2;
     }
 }
