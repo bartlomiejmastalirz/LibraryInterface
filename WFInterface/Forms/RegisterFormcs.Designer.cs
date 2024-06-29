@@ -88,6 +88,8 @@
             TxtPassword.Size = new Size(242, 41);
             TxtPassword.TabIndex = 14;
             TxtPassword.Text = "Password";
+            TxtPassword.Enter += TxtPassword_Enter;
+            TxtPassword.Leave += TxtPassword_Leave;
             // 
             // TxtUsername
             // 
@@ -102,6 +104,8 @@
             TxtUsername.Size = new Size(242, 37);
             TxtUsername.TabIndex = 15;
             TxtUsername.Text = "Login";
+            TxtUsername.Enter += TxtUsername_Enter;
+            TxtUsername.Leave += TxtUsername_Leave;
             // 
             // LoginButton
             // 
@@ -183,6 +187,10 @@
             txtConfirmPassword.Size = new Size(242, 41);
             txtConfirmPassword.TabIndex = 19;
             txtConfirmPassword.Text = "Confirm Password";
+            txtConfirmPassword.Enter += txtConfirmPassword_Enter;
+            txtConfirmPassword.Leave += txtConfirmPassword_Leave;
+
+
             // 
             // panel3
             // 
@@ -207,6 +215,9 @@
             txtName.TabIndex = 22;
             txtName.Tag = "z";
             txtName.Text = "Your Name";
+            txtName.Enter += txtName_Enter;
+            txtName.Leave += txtName_Leave;
+
             // 
             // panel4
             // 
@@ -232,6 +243,9 @@
             txtSurname.TabIndex = 25;
             txtSurname.Tag = "z";
             txtSurname.Text = "Your Surname";
+            txtSurname.Enter += txtSurname_Enter;
+            txtSurname.Leave += txtSurname_Leave;
+
             // 
             // panel5
             // 
