@@ -23,7 +23,7 @@ namespace WFInterface
             _actualInterface = actualInterface;
             DisplayUserInfo();
 
-            this.Size = new Size(877, 600);
+            //this.Size = new Size(877, 600);
         }
         private void DisplayUserInfo()
         {

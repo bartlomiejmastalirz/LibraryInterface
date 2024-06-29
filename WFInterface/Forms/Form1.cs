@@ -125,6 +125,12 @@ namespace WFInterface
             }
         }
 
+        private void registerLabel_Click(object sender, EventArgs e)
+        {
+            //Label for registering new users
+
+        }
+
         //A login function
         //private void PerformLogin()
         //{
@@ -168,7 +174,7 @@ namespace WFInterface
         //                                .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
         //                                .Select(int.Parse)
         //                                .ToList()
-                        
+
         //            };
 
         //            if (user.Login == username)
