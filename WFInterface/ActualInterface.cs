@@ -32,6 +32,7 @@ namespace WFInterface
             TxtSearch.TextChanged += TxtSearch_TextChanged;
             StyleDataGridView();
         }
+
         private void LoadBooks()
         {
             using (var reader = new StreamReader("books.csv"))
@@ -86,7 +87,7 @@ namespace WFInterface
 
         private void UpdateBookList()
         {
-            // Create a data table excluding the BookID column
+
             var dataTable = new DataTable();
             dataTable.Columns.Add("Title");
             dataTable.Columns.Add("Author");
@@ -98,6 +99,13 @@ namespace WFInterface
             }
 
             bookListView.DataSource = dataTable;
+
+            // Set columns to read-only and disable resizing
+            foreach (DataGridViewColumn column in bookListView.Columns)
+            {
+                column.ReadOnly = true;
+                column.Resizable = DataGridViewTriState.False;
+            }
 
             // Set the width of the title and author columns
             if (bookListView.Columns["Title"] != null)
@@ -112,9 +120,27 @@ namespace WFInterface
                 bookListView.Columns["Author"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             }
 
+            if (bookListView.Columns["Year"] != null)
+            {
+                bookListView.Columns["Year"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                bookListView.Columns["Year"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            }
+
+            // Set row height and disable row resizing
+            bookListView.RowTemplate.Height = 40;
+            bookListView.AllowUserToResizeRows = false;
+            bookListView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+
             bookListView.AutoResizeColumns();
             bookListView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // Disallow sorting on columns
+            foreach (DataGridViewColumn column in bookListView.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
         }
+
 
         private void StyleDataGridView()
         {
@@ -228,7 +254,7 @@ namespace WFInterface
             }
         }
     }
-    //xd
+
     public class Book
     {
         public int BookID { get; set; } = 0;
