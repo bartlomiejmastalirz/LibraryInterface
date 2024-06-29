@@ -60,7 +60,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Calibri", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
             label1.ForeColor = Color.FromArgb(217, 189, 165);
-            label1.Location = new Point(47, 171);
+            label1.Location = new Point(38, 171);
             label1.MinimumSize = new Size(126, 53);
             label1.Name = "label1";
             label1.Size = new Size(290, 53);
@@ -74,7 +74,7 @@
             panel1.Location = new Point(19, 288);
             panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(319, 13);
+            panel1.Size = new Size(319, 10);
             panel1.TabIndex = 3;
             // 
             // panel2
@@ -83,7 +83,7 @@
             panel2.Location = new Point(19, 403);
             panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(319, 15);
+            panel2.Size = new Size(319, 10);
             panel2.TabIndex = 3;
             // 
             // LoginButton
