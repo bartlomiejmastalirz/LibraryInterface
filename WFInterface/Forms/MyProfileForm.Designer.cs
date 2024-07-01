@@ -101,9 +101,9 @@
             btnGoBack.FlatStyle = FlatStyle.Flat;
             btnGoBack.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
             btnGoBack.ForeColor = Color.FromArgb(246, 238, 227);
-            btnGoBack.Location = new Point(863, 24);
+            btnGoBack.Location = new Point(816, 24);
             btnGoBack.Name = "btnGoBack";
-            btnGoBack.Size = new Size(107, 48);
+            btnGoBack.Size = new Size(154, 48);
             btnGoBack.TabIndex = 17;
             btnGoBack.Text = "Go back";
             btnGoBack.UseVisualStyleBackColor = false;
@@ -240,8 +240,7 @@
             // 
             // MyProfileForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.FromArgb(246, 238, 227);
             ClientSize = new Size(984, 748);
             ControlBox = false;

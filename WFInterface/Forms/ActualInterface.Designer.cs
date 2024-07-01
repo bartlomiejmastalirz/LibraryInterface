@@ -113,7 +113,7 @@
             labelNameless.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 238);
             labelNameless.Location = new Point(96, 27);
             labelNameless.Name = "labelNameless";
-            labelNameless.Size = new Size(325, 49);
+            labelNameless.Size = new Size(259, 39);
             labelNameless.TabIndex = 2;
             labelNameless.Text = "NAMELESS Library";
             // 
@@ -136,7 +136,7 @@
             welcomeLabel.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
             welcomeLabel.Location = new Point(31, 149);
             welcomeLabel.Name = "welcomeLabel";
-            welcomeLabel.Size = new Size(177, 24);
+            welcomeLabel.Size = new Size(140, 19);
             welcomeLabel.TabIndex = 9;
             welcomeLabel.Text = "You are logged in as";
             // 
@@ -146,7 +146,7 @@
             lblUsername.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
             lblUsername.Location = new Point(31, 184);
             lblUsername.Name = "lblUsername";
-            lblUsername.Size = new Size(48, 24);
+            lblUsername.Size = new Size(39, 19);
             lblUsername.TabIndex = 8;
             lblUsername.Text = "User";
             // 
@@ -157,7 +157,7 @@
             btnAdminPanel.FlatStyle = FlatStyle.Flat;
             btnAdminPanel.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
             btnAdminPanel.ForeColor = Color.FromArgb(246, 238, 227);
-            btnAdminPanel.Location = new Point(565, 24);
+            btnAdminPanel.Location = new Point(679, 24);
             btnAdminPanel.Name = "btnAdminPanel";
             btnAdminPanel.Size = new Size(130, 48);
             btnAdminPanel.TabIndex = 7;
@@ -172,9 +172,9 @@
             btnLogout.FlatStyle = FlatStyle.Flat;
             btnLogout.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
             btnLogout.ForeColor = Color.FromArgb(246, 238, 227);
-            btnLogout.Location = new Point(863, 24);
+            btnLogout.Location = new Point(31, 225);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(107, 48);
+            btnLogout.Size = new Size(247, 48);
             btnLogout.TabIndex = 6;
             btnLogout.Text = "Log out";
             btnLogout.UseVisualStyleBackColor = false;
@@ -187,7 +187,7 @@
             btnMyProfile.FlatStyle = FlatStyle.Flat;
             btnMyProfile.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
             btnMyProfile.ForeColor = Color.FromArgb(246, 238, 227);
-            btnMyProfile.Location = new Point(702, 24);
+            btnMyProfile.Location = new Point(816, 24);
             btnMyProfile.Name = "btnMyProfile";
             btnMyProfile.Size = new Size(154, 48);
             btnMyProfile.TabIndex = 5;
@@ -254,7 +254,7 @@
             label1.AutoSize = true;
             label1.Location = new Point(440, 689);
             label1.Name = "label1";
-            label1.Size = new Size(161, 20);
+            label1.Size = new Size(130, 15);
             label1.TabIndex = 9;
             label1.Text = "Nie usuwać, przybornik";
             // 
@@ -274,17 +274,16 @@
             newItems.Font = new Font("Calibri", 18F, FontStyle.Regular, GraphicsUnit.Point, 238);
             newItems.Location = new Point(31, 300);
             newItems.Name = "newItems";
-            newItems.Size = new Size(148, 37);
+            newItems.Size = new Size(117, 29);
             newItems.TabIndex = 11;
             newItems.Text = "New Items";
             // 
             // ActualInterface
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            AutoSize = true;
+            AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.FromArgb(246, 238, 227);
             ClientSize = new Size(984, 748);
+            ControlBox = false;
             Controls.Add(lblUsername);
             Controls.Add(welcomeLabel);
             Controls.Add(newItems);
