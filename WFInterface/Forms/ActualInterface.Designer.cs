@@ -113,7 +113,7 @@
             labelNameless.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 238);
             labelNameless.Location = new Point(96, 27);
             labelNameless.Name = "labelNameless";
-            labelNameless.Size = new Size(325, 49);
+            labelNameless.Size = new Size(259, 39);
             labelNameless.TabIndex = 2;
             labelNameless.Text = "NAMELESS Library";
             // 
@@ -136,7 +136,7 @@
             welcomeLabel.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
             welcomeLabel.Location = new Point(31, 149);
             welcomeLabel.Name = "welcomeLabel";
-            welcomeLabel.Size = new Size(177, 24);
+            welcomeLabel.Size = new Size(140, 19);
             welcomeLabel.TabIndex = 9;
             welcomeLabel.Text = "You are logged in as";
             // 
@@ -146,7 +146,7 @@
             lblUsername.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
             lblUsername.Location = new Point(31, 184);
             lblUsername.Name = "lblUsername";
-            lblUsername.Size = new Size(48, 24);
+            lblUsername.Size = new Size(39, 19);
             lblUsername.TabIndex = 8;
             lblUsername.Text = "User";
             // 
@@ -254,7 +254,7 @@
             label1.AutoSize = true;
             label1.Location = new Point(440, 689);
             label1.Name = "label1";
-            label1.Size = new Size(161, 20);
+            label1.Size = new Size(130, 15);
             label1.TabIndex = 9;
             label1.Text = "Nie usuwać, przybornik";
             // 
@@ -274,7 +274,7 @@
             newItems.Font = new Font("Calibri", 18F, FontStyle.Regular, GraphicsUnit.Point, 238);
             newItems.Location = new Point(31, 300);
             newItems.Name = "newItems";
-            newItems.Size = new Size(148, 37);
+            newItems.Size = new Size(117, 29);
             newItems.TabIndex = 11;
             newItems.Text = "New Items";
             // 
@@ -283,6 +283,7 @@
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.FromArgb(246, 238, 227);
             ClientSize = new Size(984, 748);
+            ControlBox = false;
             Controls.Add(lblUsername);
             Controls.Add(welcomeLabel);
             Controls.Add(newItems);

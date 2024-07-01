@@ -11,9 +11,9 @@ namespace InterfaceLogin
         static void Main()
         {
 
-            DatabaseInitializer.InitializeDatabase();
+            //DatabaseInitializer.InitializeDatabase();
 
-            AddUser.AddUserToDatabase("testlogin", "testpassword", "Test1", "User1", true);
+            //AddUser.AddUserToDatabase("testlogin", "testpassword", "Test1", "User1", true);
 
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());

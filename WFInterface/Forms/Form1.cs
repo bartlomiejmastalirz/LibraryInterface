@@ -2,8 +2,10 @@ using System;
 using System.Data.SQLite;
 using System.Diagnostics;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using WFInterface.Forms;
+using System.Security.Cryptography;
 
 namespace WFInterface
 {
@@ -30,34 +32,46 @@ namespace WFInterface
                     using (var connection = new SQLiteConnection($"Data Source={dbPath};Version=3;"))
                     {
                         connection.Open();
-                        string query = "SELECT * FROM Users WHERE Login = @Login AND Password = @Password";
+                        string query = "SELECT * FROM Users WHERE Login = @Login";
                         using (var command = new SQLiteCommand(query, connection))
                         {
                             command.Parameters.AddWithValue("@Login", login);
-                            command.Parameters.AddWithValue("@Password", password);
+                            //command.Parameters.AddWithValue("@Password", password);
 
                             using (var reader = command.ExecuteReader())
                             {
                                 if (reader.Read())
                                 {
+                                    string storedHash = reader["Password"].ToString();
                                     string userName = reader["UserName"].ToString();
                                     string userSurname = reader["UserSurname"].ToString();
                                     bool isAdmin = Convert.ToBoolean(reader["IsAdmin"]);
                                     string booksRented = reader["BooksRented"].ToString();
 
-                                    User user = new User
-                                    {
-                                        Login = login,
-                                        Password = password,
-                                        UserName = userName,
-                                        UserSurname = userSurname,
-                                        IsAdmin = isAdmin,
-                                        BooksRented = booksRented.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList()
-                                    };
+                                    string inputHash = HashPassword(password);
 
-                                    ActualInterface actualInterface = new ActualInterface(user);
-                                    actualInterface.Show();
-                                    this.Hide();
+                                    if (storedHash == inputHash)
+                                    {
+                                        User user = new User
+                                        {
+                                            Login = login,
+                                            Password = password,
+                                            UserName = userName,
+                                            UserSurname = userSurname,
+                                            IsAdmin = isAdmin,
+                                            BooksRented = booksRented.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList()
+
+                                        };
+
+                                        ActualInterface actualInterface = new ActualInterface(user);
+                                        actualInterface.Show();
+                                        this.Hide();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Invalid login or password.");
+                                    }
+
                                 }
                                 else
                                 {
@@ -139,6 +153,21 @@ namespace WFInterface
             RegisterFormcs registerFormcs = new RegisterFormcs();
             PositionFormBehind(registerFormcs, this);
             registerFormcs.Show();
+        }
+
+
+        public static string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
         }
     }
 }

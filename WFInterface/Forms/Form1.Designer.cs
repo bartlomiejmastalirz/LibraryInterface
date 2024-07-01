@@ -60,10 +60,10 @@
             label1.AutoSize = true;
             label1.Font = new Font("Calibri", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
             label1.ForeColor = Color.FromArgb(217, 189, 165);
-            label1.Location = new Point(38, 171);
+            label1.Location = new Point(62, 171);
             label1.MinimumSize = new Size(126, 53);
             label1.Name = "label1";
-            label1.Size = new Size(290, 53);
+            label1.Size = new Size(228, 53);
             label1.TabIndex = 1;
             label1.Text = "NAMELESS LOGIN";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -109,7 +109,7 @@
             ExitLabel.ForeColor = Color.FromArgb(217, 189, 165);
             ExitLabel.Location = new Point(156, 590);
             ExitLabel.Name = "ExitLabel";
-            ExitLabel.Size = new Size(37, 20);
+            ExitLabel.Size = new Size(28, 16);
             ExitLabel.TabIndex = 5;
             ExitLabel.Text = "Exit";
             ExitLabel.Click += ExitLabel_Click;
@@ -173,7 +173,7 @@
             registerLabel.ForeColor = Color.FromArgb(217, 189, 165);
             registerLabel.Location = new Point(100, 550);
             registerLabel.Name = "registerLabel";
-            registerLabel.Size = new Size(155, 20);
+            registerLabel.Size = new Size(131, 17);
             registerLabel.TabIndex = 9;
             registerLabel.Text = "New to the Library?";
             registerLabel.Click += registerLabel_Click;
@@ -183,7 +183,8 @@
             AcceptButton = LoginButton;
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.FromArgb(238, 231, 215);
-            ClientSize = new Size(352, 648);
+            ClientSize = new Size(370, 680);
+            ControlBox = false;
             Controls.Add(registerLabel);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);

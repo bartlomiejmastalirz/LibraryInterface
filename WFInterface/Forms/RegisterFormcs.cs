@@ -83,11 +83,9 @@ namespace WFInterface.Forms
 
         public void txtName_Enter(object sender, EventArgs e)
         {
-            // !Warning - If anyone uses a password of "Password" it is going to erase it. Too bad!
             if (txtName.Text == "Your Name")
             {
                 txtName.Text = "";
-                txtName.PasswordChar = '*';
                 txtName.ForeColor = Color.Black;
             }
         }
@@ -97,19 +95,16 @@ namespace WFInterface.Forms
             if (txtName.Text == "")
             {
                 txtName.Text = "Your Name";
-                // v This sets the password character back to 'null' from '*' 
-                txtName.PasswordChar = '\0';
                 txtName.ForeColor = Color.Silver;
             }
         }
 
         public void txtSurname_Enter(object sender, EventArgs e)
         {
-            // !Warning - If anyone uses a password of "Password" it is going to erase it. Too bad!
+
             if (txtSurname.Text == "Your Surname")
             {
                 txtSurname.Text = "";
-                txtSurname.PasswordChar = '*';
                 txtSurname.ForeColor = Color.Black;
             }
         }
@@ -119,8 +114,6 @@ namespace WFInterface.Forms
             if (txtSurname.Text == "")
             {
                 txtSurname.Text = "Your Surname";
-                // v This sets the password character back to 'null' from '*' 
-                txtSurname.PasswordChar = '\0';
                 txtSurname.ForeColor = Color.Silver;
             }
         }
@@ -142,6 +135,35 @@ namespace WFInterface.Forms
             form1.Show();
         }
 
+        private void RegisterFormcs_Load(object sender, EventArgs e)
+        {
 
+        }
+
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+            string login = TxtUsername.Text;
+            string password = TxtPassword.Text;
+            string confirmPassword = txtConfirmPassword.Text;
+            string userName = txtName.Text;
+            string userSurname = txtSurname.Text;
+            //bool isAdmin = chkIsAdmin.Checked;
+
+            if (password != confirmPassword)
+            {
+                MessageBox.Show("Passwords do not match.");
+                return;
+            }
+
+            try
+            {
+                AddUser.AddUserToDatabase(login, password, userName, userSurname);
+                MessageBox.Show("User registered successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+        }
     }
 }

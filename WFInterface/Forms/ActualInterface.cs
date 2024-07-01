@@ -21,6 +21,7 @@ namespace WFInterface
         private MyProfileForm _profileForm; // Store the instance of MyProfileForm
         private List<Book> _allBooks;
         private List<Book> _filteredBooks;
+        private AdminPanel _adminPanel;
 
         //DO NOT DELETE
         public ActualInterface(User user)
@@ -221,6 +222,22 @@ namespace WFInterface
                 btnAdminPanel.Visible = false;
             }
         }
+        private void btnAdminPanel_Click(object sender, EventArgs e)
+        {
+            if (_adminPanel == null || _adminPanel.IsDisposed)
+            {
+                _adminPanel = new AdminPanel(this);
+                _adminPanel.FormClosed += AdminPanel_FormClosed; // Subscribe to the FormClosed event
+            }
+            PositionFormBehind(_adminPanel, this); // This sets the position of the other form to this position
+            _adminPanel.Show();
+            this.Hide();
+        }
+
+        private void AdminPanel_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _adminPanel = null; // Reset the _adminPanel instance to null
+        }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -234,12 +251,6 @@ namespace WFInterface
             childForm.Location = parentForm.Location;
         }
 
-        private void btnAdminPanel_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            AdminPanel adminPanel = new AdminPanel(this);
-            adminPanel.Show();
-        }
     }
     public class User
     {

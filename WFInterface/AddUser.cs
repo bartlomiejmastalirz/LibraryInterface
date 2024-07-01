@@ -9,63 +9,71 @@ namespace WFInterface
     {
         private static string dbPath = "Library.db";
 
-        public static void InitializeDatabase()
+        //public static void InitializeDatabase()
+        //{
+        //    if (!File.Exists(dbPath))
+        //    {
+        //        SQLiteConnection.CreateFile(dbPath);
+
+        //        using (var connection = new SQLiteConnection($"Data Source={dbPath};Version=3;"))
+        //        {
+        //            connection.Open();
+
+        //            string createUsersTable = @"
+        //            CREATE TABLE IF NOT EXISTS Users (
+        //                Id INTEGER PRIMARY KEY AUTOINCREMENT,
+        //                Login TEXT NOT NULL,
+        //                Password TEXT NOT NULL,
+        //                UserName TEXT NOT NULL,
+        //                UserSurname TEXT NOT NULL,
+        //                IsAdmin INTEGER NOT NULL
+        //            );";
+
+        //            using (var command = new SQLiteCommand(createUsersTable, connection))
+        //            {
+        //                command.ExecuteNonQuery();
+        //            }
+
+        //            connection.Close();
+        //        }
+        //    }
+        //}
+
+        public static void AddUserToDatabase(string login, string password, string userName, string userSurname, bool isAdmin = false, string booksRented = "")
         {
-            if (!File.Exists(dbPath))
-            {
-                SQLiteConnection.CreateFile(dbPath);
-
-                using (var connection = new SQLiteConnection($"Data Source={dbPath};Version=3;"))
-                {
-                    connection.Open();
-
-                    string createUsersTable = @"
-                    CREATE TABLE IF NOT EXISTS Users (
-                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        Login TEXT NOT NULL,
-                        Password TEXT NOT NULL,
-                        UserName TEXT NOT NULL,
-                        UserSurname TEXT NOT NULL,
-                        IsAdmin INTEGER NOT NULL
-                    );";
-
-                    using (var command = new SQLiteCommand(createUsersTable, connection))
-                    {
-                        command.ExecuteNonQuery();
-                    }
-
-                    connection.Close();
-                }
-            }
-        }
-
-        public static void AddUserToDatabase(string login, string password, string userName, string userSurname, bool isAdmin)
-        {
-            string connectionString = $"Data Source={dbPath};Version=3;";
-
-            // Hash the password
             string hashedPassword = HashPassword(password);
 
-            using (var connection = new SQLiteConnection(connectionString))
+            using (var connection = new SQLiteConnection($"Data Source={dbPath};Version=3;"))
             {
                 connection.Open();
 
-                string insertQuery = @"
-                INSERT INTO Users (Login, Password, UserName, UserSurname, IsAdmin)
-                VALUES (@Login, @Password, @UserName, @UserSurname, @IsAdmin)";
+                // Check if user already exists
+                string checkQuery = "SELECT COUNT(*) FROM Users WHERE Login = @Login";
+                using (var checkCommand = new SQLiteCommand(checkQuery, connection))
+                {
+                    checkCommand.Parameters.AddWithValue("@Login", login);
+                    long userCount = (long)checkCommand.ExecuteScalar();
 
-                using (var command = new SQLiteCommand(insertQuery, connection))
+                    if (userCount > 0)
+                    {
+                        throw new Exception("User with this login already exists.");
+                    }
+                }
+
+                // Insert new user
+                string query = "INSERT INTO Users (Login, Password, UserName, UserSurname, IsAdmin, BooksRented) " +
+                               "VALUES (@Login, @Password, @UserName, @UserSurname, @IsAdmin, @BooksRented)";
+                using (var command = new SQLiteCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Login", login);
                     command.Parameters.AddWithValue("@Password", hashedPassword);
                     command.Parameters.AddWithValue("@UserName", userName);
                     command.Parameters.AddWithValue("@UserSurname", userSurname);
-                    command.Parameters.AddWithValue("@IsAdmin", isAdmin ? 1 : 0);
+                    command.Parameters.AddWithValue("@IsAdmin", isAdmin);
+                    command.Parameters.AddWithValue("@BooksRented", booksRented);
 
                     command.ExecuteNonQuery();
                 }
-
-                connection.Close();
             }
         }
 

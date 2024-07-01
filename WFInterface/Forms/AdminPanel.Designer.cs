@@ -77,7 +77,7 @@
             labelNameless.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 238);
             labelNameless.Location = new Point(115, 24);
             labelNameless.Name = "labelNameless";
-            labelNameless.Size = new Size(325, 49);
+            labelNameless.Size = new Size(259, 39);
             labelNameless.TabIndex = 18;
             labelNameless.Text = "NAMELESS Library";
             // 
@@ -98,7 +98,7 @@
             label1.AutoSize = true;
             label1.Location = new Point(25, 686);
             label1.Name = "label1";
-            label1.Size = new Size(161, 20);
+            label1.Size = new Size(130, 15);
             label1.TabIndex = 21;
             label1.Text = "Nie usuwać, przybornik";
             // 
@@ -166,7 +166,7 @@
             // 
             tbYearAdd.Location = new Point(109, 67);
             tbYearAdd.Name = "tbYearAdd";
-            tbYearAdd.Size = new Size(204, 27);
+            tbYearAdd.Size = new Size(204, 23);
             tbYearAdd.TabIndex = 7;
             tbYearAdd.TextChanged += tbYearAdd_TextChanged;
             // 
@@ -174,7 +174,7 @@
             // 
             tbTitleAdd.Location = new Point(109, 109);
             tbTitleAdd.Name = "tbTitleAdd";
-            tbTitleAdd.Size = new Size(204, 27);
+            tbTitleAdd.Size = new Size(204, 23);
             tbTitleAdd.TabIndex = 6;
             tbTitleAdd.TextChanged += tbTitleAdd_TextChanged;
             // 
@@ -182,7 +182,7 @@
             // 
             tbAuthorAdd.Location = new Point(109, 22);
             tbAuthorAdd.Name = "tbAuthorAdd";
-            tbAuthorAdd.Size = new Size(204, 27);
+            tbAuthorAdd.Size = new Size(204, 23);
             tbAuthorAdd.TabIndex = 5;
             tbAuthorAdd.TextChanged += tbAuthorAdd_TextChanged;
             // 
@@ -207,7 +207,7 @@
             lblTitleAdd.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblTitleAdd.Location = new Point(20, 109);
             lblTitleAdd.Name = "lblTitleAdd";
-            lblTitleAdd.Size = new Size(58, 28);
+            lblTitleAdd.Size = new Size(47, 23);
             lblTitleAdd.TabIndex = 3;
             lblTitleAdd.Text = "Title:";
             // 
@@ -217,7 +217,7 @@
             lblYearAdd.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblYearAdd.Location = new Point(20, 66);
             lblYearAdd.Name = "lblYearAdd";
-            lblYearAdd.Size = new Size(57, 28);
+            lblYearAdd.Size = new Size(48, 23);
             lblYearAdd.TabIndex = 1;
             lblYearAdd.Text = "Year:";
             // 
@@ -227,7 +227,7 @@
             lblAuthorAdd.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblAuthorAdd.Location = new Point(20, 22);
             lblAuthorAdd.Name = "lblAuthorAdd";
-            lblAuthorAdd.Size = new Size(83, 28);
+            lblAuthorAdd.Size = new Size(69, 23);
             lblAuthorAdd.TabIndex = 0;
             lblAuthorAdd.Text = "Author:";
             // 
@@ -250,21 +250,21 @@
             // 
             tbTitleRm.Location = new Point(117, 112);
             tbTitleRm.Name = "tbTitleRm";
-            tbTitleRm.Size = new Size(204, 27);
+            tbTitleRm.Size = new Size(204, 23);
             tbTitleRm.TabIndex = 8;
             // 
             // tbYearRm
             // 
             tbYearRm.Location = new Point(117, 66);
             tbYearRm.Name = "tbYearRm";
-            tbYearRm.Size = new Size(204, 27);
+            tbYearRm.Size = new Size(204, 23);
             tbYearRm.TabIndex = 9;
             // 
             // tbAuthorRm
             // 
             tbAuthorRm.Location = new Point(117, 22);
             tbAuthorRm.Name = "tbAuthorRm";
-            tbAuthorRm.Size = new Size(204, 27);
+            tbAuthorRm.Size = new Size(204, 23);
             tbAuthorRm.TabIndex = 10;
             // 
             // button1
@@ -287,7 +287,7 @@
             lblTitleRm.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblTitleRm.Location = new Point(28, 109);
             lblTitleRm.Name = "lblTitleRm";
-            lblTitleRm.Size = new Size(58, 28);
+            lblTitleRm.Size = new Size(47, 23);
             lblTitleRm.TabIndex = 4;
             lblTitleRm.Text = "Title:";
             // 
@@ -297,7 +297,7 @@
             lblYearRm.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblYearRm.Location = new Point(28, 66);
             lblYearRm.Name = "lblYearRm";
-            lblYearRm.Size = new Size(57, 28);
+            lblYearRm.Size = new Size(48, 23);
             lblYearRm.TabIndex = 2;
             lblYearRm.Text = "Year:";
             // 
@@ -307,7 +307,7 @@
             lblAuthorRm.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblAuthorRm.Location = new Point(28, 22);
             lblAuthorRm.Name = "lblAuthorRm";
-            lblAuthorRm.Size = new Size(83, 28);
+            lblAuthorRm.Size = new Size(69, 23);
             lblAuthorRm.TabIndex = 1;
             lblAuthorRm.Text = "Author:";
             // 
@@ -331,6 +331,7 @@
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.FromArgb(246, 238, 227);
             ClientSize = new Size(984, 748);
+            ControlBox = false;
             Controls.Add(panel8);
             Controls.Add(panel2);
             Controls.Add(button2);
