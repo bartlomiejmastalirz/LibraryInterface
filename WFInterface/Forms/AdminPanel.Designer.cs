@@ -168,7 +168,6 @@
             tbYearAdd.Name = "tbYearAdd";
             tbYearAdd.Size = new Size(204, 27);
             tbYearAdd.TabIndex = 7;
-            tbYearAdd.TextChanged += tbYearAdd_TextChanged;
             // 
             // tbTitleAdd
             // 
@@ -176,7 +175,6 @@
             tbTitleAdd.Name = "tbTitleAdd";
             tbTitleAdd.Size = new Size(204, 27);
             tbTitleAdd.TabIndex = 6;
-            tbTitleAdd.TextChanged += tbTitleAdd_TextChanged;
             // 
             // tbAuthorAdd
             // 
@@ -184,7 +182,6 @@
             tbAuthorAdd.Name = "tbAuthorAdd";
             tbAuthorAdd.Size = new Size(204, 27);
             tbAuthorAdd.TabIndex = 5;
-            tbAuthorAdd.TextChanged += tbAuthorAdd_TextChanged;
             // 
             // btnAddBook
             // 

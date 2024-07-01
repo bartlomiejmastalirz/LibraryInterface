@@ -31,28 +31,26 @@ namespace WFInterface
             childForm.StartPosition = FormStartPosition.Manual;
             childForm.Location = parentForm.Location;
         }
-
-        private void tbAuthorAdd_TextChanged(object sender, EventArgs e)
-        {
-            //string AuthorAdd = tbAuthorAdd.Text;
-        }
-
-        private void tbYearAdd_TextChanged(object sender, EventArgs e)
-        {
-            //string YearAdd = tbYearAdd.Text;
-        }
-
-        private void tbTitleAdd_TextChanged(object sender, EventArgs e)
-        {
-            //string TitleAdd = tbTitleAdd.Text;
-        }
-
         private void btnAddBook_Click(object sender, EventArgs e)
         {
             string AuthorAdd = tbAuthorAdd.Text;
             string TitleAdd = tbTitleAdd.Text;
             string YearAdd = tbYearAdd.Text;
-            MessageBox.Show(AuthorAdd);
+
+            if (AuthorAdd != string.Empty && YearAdd != string.Empty && TitleAdd != string.Empty)
+            {
+                DialogResult result = MessageBox.Show($"Author: {AuthorAdd}\n Year: {YearAdd}\n Title: {TitleAdd}\n",
+                "Confirm message", MessageBoxButtons.OKCancel);
+                
+                if (result == DialogResult.OK)
+                {
+                    MessageBox.Show("Successfully added to your book list!", "", MessageBoxButtons.OK) ; 
+                }
+            } 
+            else
+            {
+                MessageBox.Show("Provide missing data", "Error Message", MessageBoxButtons.OK);
+            }
         }
     }
 }
