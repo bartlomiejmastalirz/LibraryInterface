@@ -1,12 +1,7 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WFInterface
@@ -14,52 +9,90 @@ namespace WFInterface
     public partial class MyProfileForm : Form
     {
         private User _currentUser;
-        private ActualInterface _actualInterface; //stores AI data
+        private List<Book> _rentedBooks;
+        private ActualInterface _parentForm;
 
-        public MyProfileForm(User user, ActualInterface actualInterface)
+        public MyProfileForm(User user, List<Book> rentedBooks, ActualInterface parentForm)
         {
             InitializeComponent();
             _currentUser = user;
-            _actualInterface = actualInterface;
+            _rentedBooks = rentedBooks;
+            _parentForm = parentForm;
             DisplayUserInfo();
-
-            //this.Size = new Size(877, 600);
+            DisplayRentedBooks();
         }
+
         private void DisplayUserInfo()
         {
             lblName.Text = _currentUser.UserName;
             lblSurname.Text = _currentUser.UserSurname;
             lblLogin.Text = _currentUser.Login;
+        }
 
-            lblBooks.Text = "Books Rented: " + string.Join(", ", _currentUser.BooksRented);
+        private void DisplayRentedBooks()
+        {
+            rentedBooksGridView.DataSource = _rentedBooks.Select(b => new
+            {
+                b.Title,
+                b.Author,
+                b.Year
+            }).ToList();
 
+            foreach (DataGridViewColumn column in rentedBooksGridView.Columns)
+            {
+                column.ReadOnly = true;
+                column.Resizable = DataGridViewTriState.False;
+            }
+
+            if (rentedBooksGridView.Columns["Title"] != null)
+            {
+                rentedBooksGridView.Columns["Title"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                rentedBooksGridView.Columns["Title"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            }
+
+            if (rentedBooksGridView.Columns["Author"] != null)
+            {
+                rentedBooksGridView.Columns["Author"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                rentedBooksGridView.Columns["Author"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            }
+
+            if (rentedBooksGridView.Columns["Year"] != null)
+            {
+                rentedBooksGridView.Columns["Year"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                rentedBooksGridView.Columns["Year"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            }
+
+            rentedBooksGridView.RowTemplate.Height = 40;
+            rentedBooksGridView.AllowUserToResizeRows = false;
+            rentedBooksGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+
+            rentedBooksGridView.AutoResizeColumns();
+            rentedBooksGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            foreach (DataGridViewColumn column in rentedBooksGridView.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
         }
 
         private void btnGoBack_Click(object sender, EventArgs e)
         {
-            PositionFormBehind(_actualInterface, this);
+            PositionFormBehind(_parentForm, this);
             this.Hide();
-            _actualInterface.Show();
+            _parentForm.Show();
         }
 
         private void PositionFormBehind(Form childForm, Form parentForm)
         {
-            // Set the location of the child form to be the same as the parent form
             childForm.StartPosition = FormStartPosition.Manual;
             childForm.Location = parentForm.Location;
         }
 
-
-
-        //applies layout
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
             this.StartPosition = FormStartPosition.CenterParent;
             this.PerformLayout();
         }
-
-      
     }
 }
-

@@ -142,6 +142,21 @@ namespace WFInterface
             }
         }
 
+        private List<Book> GetRentedBooksForUser(User user)
+        {
+            List<Book> rentedBooks = new List<Book>();
+
+            foreach (var bookId in user.BooksRented)
+            {
+                Book rentedBook = _allBooks.FirstOrDefault(b => b.BookID == bookId);
+                if (rentedBook != null)
+                {
+                    rentedBooks.Add(rentedBook);
+                }
+            }
+
+            return rentedBooks;
+        }
 
         private void StyleDataGridView()
         {
@@ -191,7 +206,8 @@ namespace WFInterface
         {
             if (_profileForm == null || _profileForm.IsDisposed)
             {
-                _profileForm = new MyProfileForm(_currentUser, this);
+                var rentedBooks = GetRentedBooksForUser(_currentUser); // Get the rented books
+                _profileForm = new MyProfileForm(_currentUser, rentedBooks, this);
                 _profileForm.FormClosed += MyProfileForm_FormClosed; // Subscribe to the FormClosed event
             }
             PositionFormBehind(_profileForm, this); //This sets the position of the other form to this position
