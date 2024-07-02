@@ -122,9 +122,15 @@
             this.Controls.Add(this.lblUsername);
             this.Name = "MyProfileForm";
             this.Text = "MyProfileForm";
+            this.Load += new System.EventHandler(this.MyProfileForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rentedBooksGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+        }
+
+        private void MyProfileForm_Load(object sender, EventArgs e)
+        {
+            ApplyDataGridViewStyle(); // Change method name here
         }
     }
 }

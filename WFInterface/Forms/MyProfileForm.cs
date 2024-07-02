@@ -20,6 +20,7 @@ namespace WFInterface
             _parentForm = parentForm;
             DisplayUserInfo();
             DisplayRentedBooks();
+            ApplyDataGridViewStyle(); // Change method name
         }
 
         private void DisplayUserInfo()
@@ -88,11 +89,32 @@ namespace WFInterface
             childForm.Location = parentForm.Location;
         }
 
-        protected override void OnLoad(EventArgs e)
+        private void ApplyDataGridViewStyle()
         {
-            base.OnLoad(e);
-            this.StartPosition = FormStartPosition.CenterParent;
-            this.PerformLayout();
+            Font font = new Font("Segoe UI", 12);
+
+            rentedBooksGridView.Font = font;
+            rentedBooksGridView.DefaultCellStyle.Font = font;
+            rentedBooksGridView.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+
+            rentedBooksGridView.BackgroundColor = Color.FromArgb(238, 231, 215);
+            rentedBooksGridView.DefaultCellStyle.BackColor = Color.FromArgb(246, 238, 227);
+            rentedBooksGridView.DefaultCellStyle.ForeColor = Color.Black;
+            rentedBooksGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(229, 203, 186);
+
+            rentedBooksGridView.EnableHeadersVisualStyles = false;
+            rentedBooksGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(217, 189, 165);
+            rentedBooksGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            rentedBooksGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            rentedBooksGridView.DefaultCellStyle.SelectionBackColor = Color.FromArgb(229, 222, 207);
+            rentedBooksGridView.DefaultCellStyle.SelectionForeColor = Color.Black;
+
+            rentedBooksGridView.RowHeadersVisible = false;
+            rentedBooksGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            rentedBooksGridView.AutoResizeColumns();
+            rentedBooksGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
     }
 }
