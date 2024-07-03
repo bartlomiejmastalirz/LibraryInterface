@@ -7,16 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace WFInterface
 {
     public partial class AdminPanel : Form
     {
         private ActualInterface _actualInterface;
+        private SQLiteConnection _connection;
+
         public AdminPanel(ActualInterface actualInterface)
         {
             InitializeComponent();
+            InitializeDatabaseConnection();
             _actualInterface = actualInterface;
+        }
+
+        private void InitializeDatabaseConnection()
+        {
+            _connection = new SQLiteConnection("Data Source=Library.db;Version=3;");
+            _connection.Open();
         }
 
         private void btnBackToMenu_Click(object sender, EventArgs e)
@@ -44,7 +54,9 @@ namespace WFInterface
                 
                 if (result == DialogResult.OK)
                 {
-                    MessageBox.Show("Successfully added to your book list!", "", MessageBoxButtons.OK) ; 
+                    string insertQuery = $"INSERT INTO Books (Title, Author, Year) VALUES ('{AuthorAdd}', '{TitleAdd}', '{YearAdd}')";
+                   
+                    MessageBox.Show("Successfully added to your book list!", "", MessageBoxButtons.OK) ;
                 }
             } 
             else
