@@ -7,16 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace WFInterface
 {
     public partial class AdminPanel : Form
     {
         private ActualInterface _actualInterface;
+        private SQLiteConnection _connection;
+
         public AdminPanel(ActualInterface actualInterface)
         {
             InitializeComponent();
+            InitializeDatabaseConnection();
             _actualInterface = actualInterface;
+        }
+
+        private void InitializeDatabaseConnection()
+        {
+            _connection = new SQLiteConnection("Data Source=Library.db;Version=3;");
+            _connection.Open();
         }
 
         private void btnBackToMenu_Click(object sender, EventArgs e)
@@ -31,28 +41,28 @@ namespace WFInterface
             childForm.StartPosition = FormStartPosition.Manual;
             childForm.Location = parentForm.Location;
         }
-
-        private void tbAuthorAdd_TextChanged(object sender, EventArgs e)
-        {
-            //string AuthorAdd = tbAuthorAdd.Text;
-        }
-
-        private void tbYearAdd_TextChanged(object sender, EventArgs e)
-        {
-            //string YearAdd = tbYearAdd.Text;
-        }
-
-        private void tbTitleAdd_TextChanged(object sender, EventArgs e)
-        {
-            //string TitleAdd = tbTitleAdd.Text;
-        }
-
         private void btnAddBook_Click(object sender, EventArgs e)
         {
             string AuthorAdd = tbAuthorAdd.Text;
             string TitleAdd = tbTitleAdd.Text;
             string YearAdd = tbYearAdd.Text;
-            MessageBox.Show(AuthorAdd);
+
+            if (AuthorAdd != string.Empty && YearAdd != string.Empty && TitleAdd != string.Empty)
+            {
+                DialogResult result = MessageBox.Show($"Author: {AuthorAdd}\n Year: {YearAdd}\n Title: {TitleAdd}\n",
+                "Confirm message", MessageBoxButtons.OKCancel);
+                
+                if (result == DialogResult.OK)
+                {
+                    string insertQuery = $"INSERT INTO Books (Title, Author, Year) VALUES ('{AuthorAdd}', '{TitleAdd}', '{YearAdd}')";
+                   
+                    MessageBox.Show("Successfully added to your book list!", "", MessageBoxButtons.OK) ;
+                }
+            } 
+            else
+            {
+                MessageBox.Show("Provide missing data", "Error Message", MessageBoxButtons.OK);
+            }
         }
     }
 }
