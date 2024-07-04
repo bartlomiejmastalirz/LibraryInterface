@@ -26,3 +26,9 @@ public class Books
     public string Year { get; set; } = "";
     public bool Rented { get; set; } = false;
 }
+
+public class Audiobooks : Books
+{
+    public int lenMinutes { get; set; } = 0;
+    public bool Online { get; set; } = true;
+}

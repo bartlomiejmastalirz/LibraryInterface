@@ -49,7 +49,7 @@ namespace WFInterface
 
             if (AuthorAdd != string.Empty && YearAdd != string.Empty && TitleAdd != string.Empty)
             {
-                DialogResult result = MessageBox.Show($"Author: {AuthorAdd}\n Year: {YearAdd}\n Title: {TitleAdd}\n",
+                DialogResult result = MessageBox.Show($"Author: {AuthorAdd}\nYear: {YearAdd}\nTitle: {TitleAdd}\n",
                 "Confirm message", MessageBoxButtons.OKCancel);
                 
                 if (result == DialogResult.OK)
