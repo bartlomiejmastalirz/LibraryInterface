@@ -31,12 +31,6 @@
             panel1 = new Panel();
             labelNameless = new Label();
             pictureBox1 = new PictureBox();
-            label1 = new Label();
-            panel7 = new Panel();
-            panel6 = new Panel();
-            panel5 = new Panel();
-            panel4 = new Panel();
-            panel3 = new Panel();
             panel2 = new Panel();
             tbYearAdd = new TextBox();
             tbTitleAdd = new TextBox();
@@ -92,60 +86,6 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 16;
             pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(25, 686);
-            label1.Name = "label1";
-            label1.Size = new Size(130, 15);
-            label1.TabIndex = 21;
-            label1.Text = "Nie usuwać, przybornik";
-            // 
-            // panel7
-            // 
-            panel7.BackColor = Color.FromArgb(217, 189, 165);
-            panel7.Location = new Point(160, 710);
-            panel7.Margin = new Padding(3, 4, 3, 4);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(32, 33);
-            panel7.TabIndex = 20;
-            // 
-            // panel6
-            // 
-            panel6.BackColor = Color.FromArgb(229, 203, 186);
-            panel6.Location = new Point(121, 710);
-            panel6.Margin = new Padding(3, 4, 3, 4);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(32, 33);
-            panel6.TabIndex = 17;
-            // 
-            // panel5
-            // 
-            panel5.BackColor = Color.FromArgb(229, 222, 207);
-            panel5.Location = new Point(82, 710);
-            panel5.Margin = new Padding(3, 4, 3, 4);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(32, 33);
-            panel5.TabIndex = 19;
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.FromArgb(238, 231, 215);
-            panel4.Location = new Point(43, 710);
-            panel4.Margin = new Padding(3, 4, 3, 4);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(32, 33);
-            panel4.TabIndex = 18;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.FromArgb(246, 238, 227);
-            panel3.Location = new Point(4, 710);
-            panel3.Margin = new Padding(3, 4, 3, 4);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(32, 33);
-            panel3.TabIndex = 16;
             // 
             // panel2
             // 
@@ -332,12 +272,6 @@
             Controls.Add(panel8);
             Controls.Add(panel2);
             Controls.Add(button2);
-            Controls.Add(label1);
-            Controls.Add(panel7);
-            Controls.Add(panel6);
-            Controls.Add(panel5);
-            Controls.Add(panel4);
-            Controls.Add(panel3);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "AdminPanel";
@@ -351,7 +285,6 @@
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

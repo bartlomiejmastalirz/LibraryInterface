@@ -39,12 +39,6 @@
             btnLogout = new Button();
             btnMyProfile = new Button();
             panel2 = new Panel();
-            panel3 = new Panel();
-            panel4 = new Panel();
-            panel5 = new Panel();
-            panel6 = new Panel();
-            panel7 = new Panel();
-            label1 = new Label();
             newsListView = new DataGridView();
             newItems = new Label();
             btnToggleView = new Button();
@@ -187,60 +181,6 @@
             panel2.Size = new Size(613, 16);
             panel2.TabIndex = 4;
             // 
-            // panel3
-            // 
-            panel3.BackColor = Color.FromArgb(246, 238, 227);
-            panel3.Location = new Point(419, 713);
-            panel3.Margin = new Padding(3, 4, 3, 4);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(32, 33);
-            panel3.TabIndex = 5;
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.FromArgb(238, 231, 215);
-            panel4.Location = new Point(458, 713);
-            panel4.Margin = new Padding(3, 4, 3, 4);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(32, 33);
-            panel4.TabIndex = 6;
-            // 
-            // panel5
-            // 
-            panel5.BackColor = Color.FromArgb(229, 222, 207);
-            panel5.Location = new Point(497, 713);
-            panel5.Margin = new Padding(3, 4, 3, 4);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(32, 33);
-            panel5.TabIndex = 7;
-            // 
-            // panel6
-            // 
-            panel6.BackColor = Color.FromArgb(229, 203, 186);
-            panel6.Location = new Point(536, 713);
-            panel6.Margin = new Padding(3, 4, 3, 4);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(32, 33);
-            panel6.TabIndex = 6;
-            // 
-            // panel7
-            // 
-            panel7.BackColor = Color.FromArgb(217, 189, 165);
-            panel7.Location = new Point(575, 713);
-            panel7.Margin = new Padding(3, 4, 3, 4);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(32, 33);
-            panel7.TabIndex = 8;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(440, 689);
-            label1.Name = "label1";
-            label1.Size = new Size(130, 15);
-            label1.TabIndex = 9;
-            label1.Text = "Nie usuwać, przybornik";
-            // 
             // newsListView
             // 
             newsListView.BackgroundColor = Color.FromArgb(238, 231, 215);
@@ -288,14 +228,8 @@
             Controls.Add(newItems);
             Controls.Add(newsListView);
             Controls.Add(btnAdminPanel);
-            Controls.Add(label1);
             Controls.Add(btnMyProfile);
             Controls.Add(btnLogout);
-            Controls.Add(panel7);
-            Controls.Add(panel6);
-            Controls.Add(panel5);
-            Controls.Add(panel4);
-            Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(TxtSearch);
