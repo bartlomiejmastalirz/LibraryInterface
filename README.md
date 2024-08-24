@@ -40,6 +40,7 @@ MAIN MENU
 
 From here on you are officially in the Library Interface. 
 
+As you can see there is a table presenting you with all the books in the database. There is also a button allowing you to swap between searching through books or audiobooks.
 
 You can see the option to log out which will take you back to the Login Screen
 
