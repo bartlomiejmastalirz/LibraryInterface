@@ -5,6 +5,10 @@ Based on Windows Forms, therefore written in C# with SQLite as database manageme
 
 To open the program, download the LibraryMain folder with all of its contents.
 
+The credentials for logging in to a test account for admin panel are: 
+login: login
+password: password
+
 NAVIGATING THE PROGRAM
 
 When you open the program you will be greeted by a login screen. Just input your login and password!
@@ -31,10 +35,12 @@ After inputing all your information, click the Registor button below. This will 
 
 MAIN MENU
 
-![image](https://github.com/bartlomiejmastalirz/LibraryInterface/assets/148622115/3cb2ef8f-97e0-455b-bc22-a8da73c01452)
+![image](https://github.com/user-attachments/assets/7af29bdb-d7af-4adc-8636-09fa98eb5f20)
+
 
 From here on you are officially in the Library Interface. 
 
+As you can see there is a table presenting you with all the books in the database. There is also a button allowing you to swap between searching through books or audiobooks.
 
 You can see the option to log out which will take you back to the Login Screen
 
@@ -43,7 +49,8 @@ You can see the option to log out which will take you back to the Login Screen
 
 My Profile button will take you to your profile where you can see your data, rented books and the options to return them
 
-![image](https://github.com/bartlomiejmastalirz/LibraryInterface/assets/148622115/94d528db-da47-4a73-9a52-038698721428)
+![image](https://github.com/user-attachments/assets/36927584-4105-41e3-9323-4b1e12b07a4f)
+
 
 You can go back by clicking the Go Back button.
 
@@ -58,8 +65,12 @@ When a user is flagged as being an Admin, they will be presented with a super-se
 In here, an Admin user is able to add books directly to the library database aswell as remove them.
 ![image](https://github.com/bartlomiejmastalirz/LibraryInterface/assets/148622115/ec8b7b2e-f695-4303-acde-4b3ecd910d87)
 
+Functionality added:
+Register, Find books in the database, show profile.
 
+Fonctionality not added:
+Adding and removing books by the Admin, Renting books.
 
 Here lie the last drops of effort and sanity I had for working in a group and trying to manage it. -JM
 Unfortunately it wasn't possible for me to get this whole thing working and getting the group to do an actual GROUP work.
-I am willing to do a new work alone and until September.
+
