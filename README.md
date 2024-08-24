@@ -62,3 +62,4 @@ In here, an Admin user is able to add books directly to the library database asw
 
 Here lie the last drops of effort and sanity I had for working in a group and trying to manage it. -JM
 Unfortunately it wasn't possible for me to get this whole thing working and getting the group to do an actual GROUP work.
+I am willing to do a new work alone and until September.
