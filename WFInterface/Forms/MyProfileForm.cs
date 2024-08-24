@@ -25,9 +25,9 @@ namespace WFInterface
 
         private void DisplayUserInfo()
         {
-            lblName.Text = _currentUser.UserName;
-            lblSurname.Text = _currentUser.UserSurname;
-            lblLogin.Text = _currentUser.Login;
+            lblName.Text = "Name: " + _currentUser.UserName;
+            lblSurname.Text = "Surname: " + _currentUser.UserSurname;
+            lblLogin.Text = "Login: " + _currentUser.Login;
         }
 
         private void DisplayRentedBooks()

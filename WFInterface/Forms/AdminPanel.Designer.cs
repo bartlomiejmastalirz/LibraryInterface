@@ -315,9 +315,9 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Calibri", 15.75F, FontStyle.Bold);
             button2.ForeColor = Color.FromArgb(246, 238, 227);
-            button2.Location = new Point(824, 29);
+            button2.Location = new Point(816, 24);
             button2.Name = "button2";
-            button2.Size = new Size(130, 48);
+            button2.Size = new Size(154, 48);
             button2.TabIndex = 3;
             button2.Text = "Go Back";
             button2.UseVisualStyleBackColor = false;
@@ -327,7 +327,7 @@
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.FromArgb(246, 238, 227);
-            ClientSize = new Size(984, 748);
+            ClientSize = new Size(1000, 787);
             ControlBox = false;
             Controls.Add(panel8);
             Controls.Add(panel2);

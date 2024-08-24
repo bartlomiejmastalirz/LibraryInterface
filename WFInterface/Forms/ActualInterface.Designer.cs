@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ActualInterface));
             bookListView = new DataGridView();
             TxtSearch = new TextBox();
-            BtnSearch = new Button();
             panel1 = new Panel();
             labelNameless = new Label();
             pictureBox1 = new PictureBox();
@@ -49,6 +47,7 @@
             label1 = new Label();
             newsListView = new DataGridView();
             newItems = new Label();
+            btnToggleView = new Button();
             ((System.ComponentModel.ISupportInitialize)bookListView).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -71,38 +70,22 @@
             TxtSearch.BorderStyle = BorderStyle.None;
             TxtSearch.Font = new Font("Calibri", 18F, FontStyle.Regular, GraphicsUnit.Point, 238);
             TxtSearch.ForeColor = Color.DarkGray;
-            TxtSearch.Location = new Point(309, 149);
+            TxtSearch.Location = new Point(309, 159);
             TxtSearch.Multiline = true;
             TxtSearch.Name = "TxtSearch";
-            TxtSearch.Size = new Size(550, 44);
+            TxtSearch.Size = new Size(613, 44);
             TxtSearch.TabIndex = 1;
             TxtSearch.Text = "Search for books...";
             TxtSearch.TextChanged += TxtSearch_TextChanged;
             TxtSearch.Enter += TxtSearch_Enter;
             TxtSearch.Leave += TxtSearch_Leave;
             // 
-            // BtnSearch
-            // 
-            BtnSearch.Anchor = AnchorStyles.None;
-            BtnSearch.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            BtnSearch.BackColor = Color.FromArgb(229, 203, 186);
-            BtnSearch.BackgroundImageLayout = ImageLayout.Zoom;
-            BtnSearch.FlatAppearance.BorderSize = 0;
-            BtnSearch.FlatStyle = FlatStyle.Flat;
-            BtnSearch.ForeColor = Color.Black;
-            BtnSearch.Image = (Image)resources.GetObject("BtnSearch.Image");
-            BtnSearch.Location = new Point(864, 149);
-            BtnSearch.Name = "BtnSearch";
-            BtnSearch.Size = new Size(57, 67);
-            BtnSearch.TabIndex = 2;
-            BtnSearch.UseVisualStyleBackColor = false;
-            // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(229, 203, 186);
             panel1.Controls.Add(labelNameless);
             panel1.Controls.Add(pictureBox1);
-            panel1.Location = new Point(-1, -3);
+            panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(559, 101);
             panel1.TabIndex = 3;
@@ -198,10 +181,10 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(229, 203, 186);
-            panel2.Location = new Point(309, 203);
+            panel2.Location = new Point(309, 200);
             panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(550, 13);
+            panel2.Size = new Size(613, 16);
             panel2.TabIndex = 4;
             // 
             // panel3
@@ -278,12 +261,28 @@
             newItems.TabIndex = 11;
             newItems.Text = "New Items";
             // 
+            // btnToggleView
+            // 
+            btnToggleView.BackColor = Color.FromArgb(217, 189, 165);
+            btnToggleView.FlatAppearance.BorderSize = 0;
+            btnToggleView.FlatStyle = FlatStyle.Flat;
+            btnToggleView.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            btnToggleView.ForeColor = Color.FromArgb(246, 238, 227);
+            btnToggleView.Location = new Point(309, 114);
+            btnToggleView.Name = "btnToggleView";
+            btnToggleView.Size = new Size(613, 38);
+            btnToggleView.TabIndex = 12;
+            btnToggleView.Text = "Toggle between Books and Audiobooks";
+            btnToggleView.UseVisualStyleBackColor = false;
+            btnToggleView.Click += btnToggleView_Click;
+            // 
             // ActualInterface
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.FromArgb(246, 238, 227);
             ClientSize = new Size(984, 748);
             ControlBox = false;
+            Controls.Add(btnToggleView);
             Controls.Add(lblUsername);
             Controls.Add(welcomeLabel);
             Controls.Add(newItems);
@@ -299,7 +298,6 @@
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Controls.Add(BtnSearch);
             Controls.Add(TxtSearch);
             Controls.Add(bookListView);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
@@ -322,7 +320,6 @@
 
         private DataGridView bookListView;
         private TextBox TxtSearch;
-        private Button BtnSearch;
         private Panel panel1;
         private PictureBox pictureBox1;
         private Button btnLogout;
@@ -340,5 +337,6 @@
         private Label lblUsername;
         private Label welcomeLabel;
         private Label labelNameless;
+        private Button btnToggleView;
     }
 }

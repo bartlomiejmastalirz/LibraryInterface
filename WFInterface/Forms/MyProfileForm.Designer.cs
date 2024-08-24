@@ -22,115 +22,207 @@
 
         private void InitializeComponent()
         {
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.rentedBooksGridView = new System.Windows.Forms.DataGridView();
-            this.lblName = new System.Windows.Forms.Label();
-            this.lblSurname = new System.Windows.Forms.Label();
-            this.lblLogin = new System.Windows.Forms.Label();
-            this.lblBooks = new System.Windows.Forms.Label();
-            this.btnGoBack = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.rentedBooksGridView)).BeginInit();
-            this.SuspendLayout();
+            lblUsername = new Label();
+            rentedBooksGridView = new DataGridView();
+            lblName = new Label();
+            lblSurname = new Label();
+            lblLogin = new Label();
+            lblBooks = new Label();
+            btnGoBack = new Button();
+            panel1 = new Panel();
+            labelNameless = new Label();
+            pictureBox1 = new PictureBox();
+            panel2 = new Panel();
+            panel3 = new Panel();
+            panel4 = new Panel();
+            ((System.ComponentModel.ISupportInitialize)rentedBooksGridView).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // lblUsername
             // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblUsername.Location = new System.Drawing.Point(12, 9);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(55, 19);
-            this.lblUsername.TabIndex = 0;
-            this.lblUsername.Text = "Username";
+            lblUsername.AutoSize = true;
+            lblUsername.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            lblUsername.Location = new Point(18, 187);
+            lblUsername.Margin = new Padding(4, 0, 4, 0);
+            lblUsername.Name = "lblUsername";
+            lblUsername.Size = new Size(112, 26);
+            lblUsername.TabIndex = 0;
+            lblUsername.Text = "Your details";
             // 
             // rentedBooksGridView
             // 
-            this.rentedBooksGridView.BackgroundColor = System.Drawing.Color.FromArgb(238, 231, 215);
-            this.rentedBooksGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.rentedBooksGridView.Location = new System.Drawing.Point(12, 150);
-            this.rentedBooksGridView.Name = "rentedBooksGridView";
-            this.rentedBooksGridView.RowHeadersWidth = 51;
-            this.rentedBooksGridView.Size = new System.Drawing.Size(760, 250);
-            this.rentedBooksGridView.TabIndex = 1;
+            rentedBooksGridView.BackgroundColor = Color.FromArgb(238, 231, 215);
+            rentedBooksGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            rentedBooksGridView.Location = new Point(309, 225);
+            rentedBooksGridView.Margin = new Padding(4, 3, 4, 3);
+            rentedBooksGridView.Name = "rentedBooksGridView";
+            rentedBooksGridView.RowHeadersWidth = 51;
+            rentedBooksGridView.Size = new Size(613, 461);
+            rentedBooksGridView.TabIndex = 1;
             // 
             // lblName
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblName.Location = new System.Drawing.Point(12, 40);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(47, 19);
-            this.lblName.TabIndex = 2;
-            this.lblName.Text = "Name";
+            lblName.AutoSize = true;
+            lblName.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblName.Location = new Point(18, 281);
+            lblName.Margin = new Padding(4, 0, 4, 0);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(63, 26);
+            lblName.TabIndex = 2;
+            lblName.Text = "Name";
             // 
             // lblSurname
             // 
-            this.lblSurname.AutoSize = true;
-            this.lblSurname.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblSurname.Location = new System.Drawing.Point(12, 70);
-            this.lblSurname.Name = "lblSurname";
-            this.lblSurname.Size = new System.Drawing.Size(65, 19);
-            this.lblSurname.TabIndex = 3;
-            this.lblSurname.Text = "Surname";
+            lblSurname.AutoSize = true;
+            lblSurname.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblSurname.Location = new Point(18, 331);
+            lblSurname.Margin = new Padding(4, 0, 4, 0);
+            lblSurname.Name = "lblSurname";
+            lblSurname.Size = new Size(88, 26);
+            lblSurname.TabIndex = 3;
+            lblSurname.Text = "Surname";
             // 
             // lblLogin
             // 
-            this.lblLogin.AutoSize = true;
-            this.lblLogin.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblLogin.Location = new System.Drawing.Point(12, 100);
-            this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(44, 19);
-            this.lblLogin.TabIndex = 4;
-            this.lblLogin.Text = "Login";
+            lblLogin.AutoSize = true;
+            lblLogin.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblLogin.Location = new Point(18, 231);
+            lblLogin.Margin = new Padding(4, 0, 4, 0);
+            lblLogin.Name = "lblLogin";
+            lblLogin.Size = new Size(58, 26);
+            lblLogin.TabIndex = 4;
+            lblLogin.Text = "Login";
             // 
             // lblBooks
             // 
-            this.lblBooks.AutoSize = true;
-            this.lblBooks.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblBooks.Location = new System.Drawing.Point(12, 130);
-            this.lblBooks.Name = "lblBooks";
-            this.lblBooks.Size = new System.Drawing.Size(51, 19);
-            this.lblBooks.TabIndex = 5;
-            this.lblBooks.Text = "Books";
+            lblBooks.AutoSize = true;
+            lblBooks.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblBooks.Location = new Point(309, 187);
+            lblBooks.Margin = new Padding(4, 0, 4, 0);
+            lblBooks.Name = "lblBooks";
+            lblBooks.Size = new Size(170, 26);
+            lblBooks.TabIndex = 5;
+            lblBooks.Text = "Your Rented Books";
             // 
             // btnGoBack
             // 
-            this.btnGoBack.BackColor = System.Drawing.Color.FromArgb(217, 189, 165);
-            this.btnGoBack.FlatAppearance.BorderSize = 0;
-            this.btnGoBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGoBack.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnGoBack.ForeColor = System.Drawing.Color.FromArgb(246, 238, 227);
-            this.btnGoBack.Location = new System.Drawing.Point(12, 420);
-            this.btnGoBack.Name = "btnGoBack";
-            this.btnGoBack.Size = new System.Drawing.Size(130, 48);
-            this.btnGoBack.TabIndex = 6;
-            this.btnGoBack.Text = "Go Back";
-            this.btnGoBack.UseVisualStyleBackColor = false;
-            this.btnGoBack.Click += new System.EventHandler(this.btnGoBack_Click);
+            btnGoBack.BackColor = Color.FromArgb(217, 189, 165);
+            btnGoBack.FlatAppearance.BorderSize = 0;
+            btnGoBack.FlatStyle = FlatStyle.Flat;
+            btnGoBack.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            btnGoBack.ForeColor = Color.FromArgb(246, 238, 227);
+            btnGoBack.Location = new Point(816, 24);
+            btnGoBack.Margin = new Padding(4, 3, 4, 3);
+            btnGoBack.Name = "btnGoBack";
+            btnGoBack.Size = new Size(154, 48);
+            btnGoBack.TabIndex = 6;
+            btnGoBack.Text = "Go Back";
+            btnGoBack.UseVisualStyleBackColor = false;
+            btnGoBack.Click += btnGoBack_Click;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(229, 203, 186);
+            panel1.Controls.Add(labelNameless);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(559, 101);
+            panel1.TabIndex = 7;
+            // 
+            // labelNameless
+            // 
+            labelNameless.AutoSize = true;
+            labelNameless.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            labelNameless.Location = new Point(96, 27);
+            labelNameless.Name = "labelNameless";
+            labelNameless.Size = new Size(259, 39);
+            labelNameless.TabIndex = 2;
+            labelNameless.Text = "NAMELESS Library";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = Properties.Resources.noun_library_71245;
+            pictureBox1.Location = new Point(15, 4);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(74, 107);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(229, 203, 186);
+            panel2.Location = new Point(18, 261);
+            panel2.Margin = new Padding(3, 4, 3, 4);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(273, 10);
+            panel2.TabIndex = 8;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(229, 203, 186);
+            panel3.Location = new Point(18, 311);
+            panel3.Margin = new Padding(3, 4, 3, 4);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(273, 10);
+            panel3.TabIndex = 9;
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.FromArgb(229, 203, 186);
+            panel4.Location = new Point(18, 361);
+            panel4.Margin = new Padding(3, 4, 3, 4);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(273, 10);
+            panel4.TabIndex = 10;
             // 
             // MyProfileForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(246, 238, 227);
-            this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.btnGoBack);
-            this.Controls.Add(this.lblBooks);
-            this.Controls.Add(this.lblLogin);
-            this.Controls.Add(this.lblSurname);
-            this.Controls.Add(this.lblName);
-            this.Controls.Add(this.rentedBooksGridView);
-            this.Controls.Add(this.lblUsername);
-            this.Name = "MyProfileForm";
-            this.Text = "MyProfileForm";
-            this.Load += new System.EventHandler(this.MyProfileForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.rentedBooksGridView)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(246, 238, 227);
+            ClientSize = new Size(1000, 787);
+            ControlBox = false;
+            Controls.Add(panel4);
+            Controls.Add(panel3);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
+            Controls.Add(btnGoBack);
+            Controls.Add(lblBooks);
+            Controls.Add(lblLogin);
+            Controls.Add(lblSurname);
+            Controls.Add(lblName);
+            Controls.Add(rentedBooksGridView);
+            Controls.Add(lblUsername);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "MyProfileForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "MyProfileForm";
+            Load += MyProfileForm_Load;
+            ((System.ComponentModel.ISupportInitialize)rentedBooksGridView).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         private void MyProfileForm_Load(object sender, EventArgs e)
         {
             ApplyDataGridViewStyle(); // Change method name here
         }
+
+        private Panel panel1;
+        private Label labelNameless;
+        private PictureBox pictureBox1;
+        private Panel panel2;
+        private Panel panel3;
+        private Panel panel4;
     }
 }

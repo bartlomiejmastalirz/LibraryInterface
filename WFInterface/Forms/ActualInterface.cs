@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.IO;
 using CsvHelper;
 using System.Globalization;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace WFInterface
 {
@@ -21,7 +22,9 @@ namespace WFInterface
         private MyProfileForm _profileForm; // Store the instance of MyProfileForm
         private List<Book> _allBooks;
         private List<Book> _filteredBooks;
+        private List<Audiobook> _allAudiobooks= new List<Audiobook>();
         private AdminPanel _adminPanel;
+        private bool showingBooks = true;
 
         //DO NOT DELETE
         public ActualInterface(User user)
@@ -29,25 +32,15 @@ namespace WFInterface
             InitializeComponent();
             _currentUser = user;
             DisplayUserInfo();
-            LoadBooks();
+
+            _allBooks = Book.LoadBooksFromCsv("books.csv");
+            _filteredBooks = new List<Book>(_allBooks);
+
             TxtSearch.TextChanged += TxtSearch_TextChanged;
+            btnToggleView.Text = "Show Audiobooks";
             StyleDataGridView();
         }
 
-        private void LoadBooks()
-        {
-            using (var reader = new StreamReader("books.csv"))
-            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
-            {
-                _allBooks = csv.GetRecords<Book>().ToList();
-            }
-
-            _allBooks = _allBooks.OrderByDescending(book => int.Parse(book.Year)).ToList(); // Sort books by year
-            _filteredBooks = new List<Book>(_allBooks);
-            UpdateBookList();
-        }
-
-        //DO NOT DELETE
         private void btnLogout_Click(object sender, EventArgs e)
         {
             Logout();
@@ -70,78 +63,6 @@ namespace WFInterface
             MessageBox.Show("Successfully logged out!");
         }
 
-        private void TxtSearch_TextChanged(object sender, EventArgs e)
-        {
-            string searchText = TxtSearch.Text.ToLower();
-            if (string.IsNullOrEmpty(searchText) || searchText == "search for books...")
-            {
-                _filteredBooks = new List<Book>(_allBooks); // Reset to all books if search text is empty
-            }
-            else
-            {
-                _filteredBooks = _allBooks
-                    .Where(book => book.Title.ToLower().Contains(searchText) || book.Author.ToLower().Contains(searchText))
-                    .ToList();
-            }
-            UpdateBookList();
-        }
-
-        private void UpdateBookList()
-        {
-
-            var dataTable = new DataTable();
-            dataTable.Columns.Add("Title");
-            dataTable.Columns.Add("Author");
-            dataTable.Columns.Add("Year");
-
-            foreach (var book in _filteredBooks)
-            {
-                dataTable.Rows.Add(book.Title, book.Author, book.Year);
-            }
-
-            bookListView.DataSource = dataTable;
-
-            // Set columns to read-only and disable resizing
-            foreach (DataGridViewColumn column in bookListView.Columns)
-            {
-                column.ReadOnly = true;
-                column.Resizable = DataGridViewTriState.False;
-            }
-
-            // Set the width of the title and author columns
-            if (bookListView.Columns["Title"] != null)
-            {
-                bookListView.Columns["Title"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                bookListView.Columns["Title"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            }
-
-            if (bookListView.Columns["Author"] != null)
-            {
-                bookListView.Columns["Author"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                bookListView.Columns["Author"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            }
-
-            if (bookListView.Columns["Year"] != null)
-            {
-                bookListView.Columns["Year"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                bookListView.Columns["Year"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            }
-
-            // Set row height and disable row resizing
-            bookListView.RowTemplate.Height = 40;
-            bookListView.AllowUserToResizeRows = false;
-            bookListView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-
-            bookListView.AutoResizeColumns();
-            bookListView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            // Disallow sorting on columns
-            foreach (DataGridViewColumn column in bookListView.Columns)
-            {
-                column.SortMode = DataGridViewColumnSortMode.NotSortable;
-            }
-        }
-
         private List<Book> GetRentedBooksForUser(User user)
         {
             List<Book> rentedBooks = new List<Book>();
@@ -158,29 +79,20 @@ namespace WFInterface
             return rentedBooks;
         }
 
-        private void StyleDataGridView()
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-            Font font = new Font("Segoe UI", 12);
-
-            bookListView.Font = font;
-            bookListView.DefaultCellStyle.Font = font;
-            bookListView.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 12, FontStyle.Bold);
-
-            bookListView.BackgroundColor = Color.FromArgb(238, 231, 215);
-            bookListView.DefaultCellStyle.BackColor = Color.FromArgb(246, 238, 227);
-            bookListView.DefaultCellStyle.ForeColor = Color.Black;
-            bookListView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(229, 203, 186);
-
-            bookListView.EnableHeadersVisualStyles = false;
-            bookListView.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(217, 189, 165);
-            bookListView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            bookListView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-            bookListView.DefaultCellStyle.SelectionBackColor = Color.FromArgb(229, 222, 207);
-            bookListView.DefaultCellStyle.SelectionForeColor = Color.Black;
-
-            bookListView.RowHeadersVisible = false;
-            bookListView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            string searchText = TxtSearch.Text.ToLower();
+            if (string.IsNullOrEmpty(searchText) || searchText == "search for books...")
+            {
+                _filteredBooks = new List<Book>(_allBooks); // Reset to all books if search text is empty
+            }
+            else
+            {
+                _filteredBooks = _allBooks
+                    .Where(book => book.Title.ToLower().Contains(searchText) || book.Author.ToLower().Contains(searchText))
+                    .ToList();
+            }
+            UpdateBookList();
         }
 
         private void TxtSearch_Enter(object sender, EventArgs e)
@@ -267,33 +179,191 @@ namespace WFInterface
             childForm.Location = parentForm.Location;
         }
 
-    }
-    public class User
-    {
-        public string Login { get; set; } = "";
-        public string Password { get; set; } = "";
-        public string UserName { get; set; } = "";
-        public string UserSurname { get; set; } = "";
-        public bool IsAdmin { get; set; } = false;
-        public List<int> BooksRented { get; set; } = new List<int>();
-
-        public void ParseBooksRented(string booksRented)
+        private void btnToggleView_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(booksRented))
+            // Toggle between showing books and audiobooks
+            showingBooks = !showingBooks;
+
+            if (showingBooks)
             {
-                BooksRented = booksRented.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
-                                         .Select(int.Parse)
-                                         .ToList();
+                // Update DataGridView to display books
+                UpdateBookList();
+                ((Button)sender).Text = "Show Audiobooks"; // Update button text
+            }
+            else
+            {
+                // Update DataGridView to display audiobooks
+                UpdateAudiobookList();
+                ((Button)sender).Text = "Show Books"; // Update button text
             }
         }
-    }
 
-    public class Book
-    {
-        public int BookID { get; set; } = 0;
-        public string Title { get; set; } = "";
-        public string Author { get; set; } = "";
-        public string Year { get; set; } = "";
-        public bool Rented { get; set; } = false;
+        private void UpdateBookList()
+        {
+            // Create a DataTable and add columns
+            var dataTable = new DataTable();
+            dataTable.Columns.Add("Title");
+            dataTable.Columns.Add("Author");
+            dataTable.Columns.Add("Year");
+
+            // Populate the DataTable with book data
+            foreach (var book in _filteredBooks)
+            {
+                dataTable.Rows.Add(book.Title, book.Author, book.Year);
+            }
+
+            // Set the DataTable as the DataSource for the DataGridView
+            bookListView.DataSource = dataTable;
+
+            // Set columns to read-only and disable resizing
+            foreach (DataGridViewColumn column in bookListView.Columns)
+            {
+                column.ReadOnly = true;
+                column.Resizable = DataGridViewTriState.False;
+            }
+
+            // Set the width of the title and author columns and wrap text
+            if (bookListView.Columns["Title"] != null)
+            {
+                bookListView.Columns["Title"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                bookListView.Columns["Title"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            }
+
+            if (bookListView.Columns["Author"] != null)
+            {
+                bookListView.Columns["Author"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                bookListView.Columns["Author"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            }
+
+            if (bookListView.Columns["Year"] != null)
+            {
+                bookListView.Columns["Year"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                bookListView.Columns["Year"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            }
+
+            // Set row height and disable row resizing
+            bookListView.RowTemplate.Height = 40;
+            bookListView.AllowUserToResizeRows = false;
+            bookListView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+
+            // Resize and fill columns
+            bookListView.AutoResizeColumns();
+            bookListView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // Disallow sorting on columns
+            foreach (DataGridViewColumn column in bookListView.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+        }
+
+        private void UpdateAudiobookList()
+        {
+            // Create a DataTable and add columns
+            var dataTable = new DataTable();
+            dataTable.Columns.Add("Title");
+            dataTable.Columns.Add("Author");
+            dataTable.Columns.Add("Year");
+            dataTable.Columns.Add("Length (min)"); // Add column for audiobook length
+
+
+            if (_allAudiobooks.Count == 0)
+            {
+                // If no audiobooks are available, show a message in the DataGridView
+                dataTable.Rows.Add("No content here", "None", "None", "0");
+            }
+            else
+            {
+                foreach (var audiobook in _allAudiobooks)
+                {
+                    dataTable.Rows.Add(audiobook.Title, audiobook.Author, audiobook.Year, audiobook.lenMinutes);
+                }
+            }
+
+            // Set the DataTable as the DataSource for the DataGridView
+            bookListView.DataSource = dataTable;
+
+            // Set columns to read-only and disable resizing
+            foreach (DataGridViewColumn column in bookListView.Columns)
+            {
+                column.ReadOnly = true;
+                column.Resizable = DataGridViewTriState.False;
+            }
+
+            // Set the width of the title and author columns and wrap text
+            if (bookListView.Columns["Title"] != null)
+            {
+                bookListView.Columns["Title"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                bookListView.Columns["Title"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            }
+
+            if (bookListView.Columns["Author"] != null)
+            {
+                bookListView.Columns["Author"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                bookListView.Columns["Author"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            }
+
+            if (bookListView.Columns["Year"] != null)
+            {
+                bookListView.Columns["Year"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                bookListView.Columns["Year"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            }
+
+            if (bookListView.Columns["Length (min)"] != null)
+            {
+                bookListView.Columns["Length (min)"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                bookListView.Columns["Length (min)"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            }
+
+            // Set row height and disable row resizing
+            bookListView.RowTemplate.Height = 40;
+            bookListView.AllowUserToResizeRows = false;
+            bookListView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+
+            // Resize and fill columns
+            bookListView.AutoResizeColumns();
+            bookListView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // Disallow sorting on columns
+            foreach (DataGridViewColumn column in bookListView.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+        }
+
+        private void StyleDataGridView()
+        {
+            // Set font and style for the DataGridView
+            Font font = new Font("Segoe UI", 12);
+
+            bookListView.Font = font;
+            bookListView.DefaultCellStyle.Font = font;
+            bookListView.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+
+            // Set background and foreground colors
+            bookListView.BackgroundColor = Color.FromArgb(238, 231, 215);
+            bookListView.DefaultCellStyle.BackColor = Color.FromArgb(246, 238, 227);
+            bookListView.DefaultCellStyle.ForeColor = Color.Black;
+            bookListView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(229, 203, 186);
+
+            // Set header styles
+            bookListView.EnableHeadersVisualStyles = false;
+            bookListView.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(217, 189, 165);
+            bookListView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            bookListView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            // Set selection styles
+            bookListView.DefaultCellStyle.SelectionBackColor = Color.FromArgb(229, 222, 207);
+            bookListView.DefaultCellStyle.SelectionForeColor = Color.Black;
+
+            // Hide row headers and set column auto-size mode
+            bookListView.RowHeadersVisible = false;
+            bookListView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // Resize columns after styling
+            bookListView.AutoResizeColumns();
+            bookListView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
     }
 }
+
