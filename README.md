@@ -71,6 +71,5 @@ Register, Find books in the database, show profile.
 Fonctionality not added:
 Adding and removing books by the Admin, Renting books.
 
-Here lie the last drops of effort and sanity I had for working in a group and trying to manage it. -JM
-Unfortunately it wasn't possible for me to get this whole thing working and getting the group to do an actual GROUP work.
+
 
